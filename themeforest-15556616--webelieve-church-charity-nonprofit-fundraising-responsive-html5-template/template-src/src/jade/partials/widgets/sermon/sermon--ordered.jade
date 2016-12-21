@@ -1,0 +1,47 @@
+// BEGIN SERMON ORDERED
+section.sermon.sermon--ordered.js-sermon(data-modifier='ordered')
+  h2.widget__title Latest Sermons
+  - var order = 0;
+  each sermon, i in locals.data.sermons
+    if i < 3
+      // BEGIN SERMON ORDERED ITEM
+
+      .sermon__item.js-sermon-item(data-id=i, data-href='sermon_details.html')
+        .sermon__info
+          .sermon__order 0#{i + 1}
+          .sermon__details
+            time.sermon__time(datetime="2016")= sermon.time
+            h3.sermon__name
+              a(href='sermon_details.html')= sermon.name
+          figure.sermon__ministry
+            a(href='sermon_details.html')
+              img.sermon__ministry-img(src='#{path.media}/members/avatar.png', alt='')
+          .sermon__sep
+          .sermon__links
+            a.sermon__link-item.js-sermon-video
+              svg.sermon__link-svg
+                use(xlink:href='#icon-video')
+            a.sermon__link-item.js-sermon-audio
+              svg.sermon__link-svg
+                use(xlink:href='#icon-audio')
+            a.sermon__link-item(href='http://codefactory47.com/public/webelieve/media/Psalms_023.mp3', target='_blank')
+              svg.sermon__link-svg
+                use(xlink:href='#icon-speaker')
+            a.sermon__link-item(href='http://codefactory47.com/public/webelieve/media/notes.pdf', target='_blank')
+              svg.sermon__link-svg
+                use(xlink:href='#icon-file')
+          a.btn--link.sermon__more(href='sermon_details.html') Read more
+        .sermon__video
+          .plyr
+            if i == 2
+              div(data-video-id="bofF_aRIILI", data-type="youtube")
+            else
+              video(poster='#{path.media}/sermons/1794x1010/' + sermon.picture, controls="")
+                source(src=sermon.video + ".mp4" type="video/mp4")
+                source(src=sermon.video + ".webm" type="video/webm")
+        .sermon__audio
+          .plyr
+            audio( controls crossorigin)
+              source(src=sermon.audio + ".mp3" type="audio/mp3")
+      // END SERMON ORDERED ITEM
+// END SERMON ORDERED

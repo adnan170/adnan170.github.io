@@ -1,0 +1,55 @@
+- product = locals.data.products[0];
++widget(product.title, 'card details')
+  section.products.products--details
+    .products__photo
+      .products__photo-big
+        a.js-gallery-item(href='#{path.media}/products/440x470/product-1.jpg', data-size="440x470", data-gallery-index=1)
+          img.products__img(src='#{path.media}/products/440x470/product-1.jpg', alt='')
+      .products__thumbs
+        a.products__thumbs-item.js-gallery-item(href='#{path.media}/products/440x470/product-1.jpg', data-size="440x470", data-gallery-index=1)
+          img.products__thumbs-img(src='#{path.media}/products/440x470/product-1.jpg', alt='')
+        a.products__thumbs-item.js-gallery-item(href='#{path.media}/products/440x470/product-2.jpg', data-size="440x470", data-gallery-index=2)
+          img.products__thumbs-img(src='#{path.media}/products/440x470/product-2.jpg', alt='')
+        a.products__thumbs-item.js-gallery-item(href='#{path.media}/products/440x470/product-3.jpg', data-size="440x470", data-gallery-index=3)
+          img.products__thumbs-img(src='#{path.media}/products/440x470/product-3.jpg', alt='')
+        a.products__thumbs-item.js-gallery-item(href='#{path.media}/products/440x470/product-4.jpg', data-size="440x470", data-gallery-index=4)
+          img.products__thumbs-img(src='#{path.media}/products/440x470/product-4.jpg', alt='')
+
+    .products__info
+      del.products__price-old $109
+      span.products__price $#{product.price}
+      .products__quantity
+        include ../../mixins/numberfield
+        +numberfield
+
+      button.btn--flat.products__add Add to cart
+      .products__descr
+        p Gifts & Decor Desert Angel Tea Light Candleholder Decorative Gift. Wearing a beautiful rainbow scarf this lovely angel reminds us to treat everyone with care and accept everyone for who they are.  Appearing to rise from the windblown desert sand, a gentle angel folds her arms and cups her wings in reverent prayer. An earthy spiritual decoration to display with pride. Polyresin.
+      .products__raiting
+        .raiting
+          .raiting__stars
+            i.fa.fa-star
+            i.fa.fa-star
+            i.fa.fa-star
+            i.fa.fa-star
+            i.fa.fa-star-half
+          span.raiting__label (5 customer reviews)
+
+      h6 Share this:
+      .products__social
+        .social.social--left
+          .social__list
+            a.social__item(href='#')
+              i.fa.fa-facebook
+            a.social__item(href='#')
+              i.fa.fa-twitter
+            a.social__item(href='#')
+              i.fa.fa-google-plus
+
++widget(null, 'card')
+  include ../../chunks/comment--review
+
++widget('Leave a review', 'card')
+  .comment__form
+    +formReview('review')
+  // end of block .comment__form

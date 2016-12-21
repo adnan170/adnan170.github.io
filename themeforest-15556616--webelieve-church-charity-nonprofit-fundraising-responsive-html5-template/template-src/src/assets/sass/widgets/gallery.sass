@@ -1,0 +1,131 @@
+/*------------------------------------------------------------------
+  * Gallery / .gallery
+  * .gallery--wide
+  * .gallery--grid
+  ******************************************************************/
++b(gallery)
+  +e(list)
+
+  +e(link)
+    position: relative
+    color: #fff
+    display: block
+  +e(btn)
+    +btn
+    position: absolute
+    top: 50%
+    left: 50%
+    margin: -30px 0 0 -30px
+    +circle(60px)
+    background: rgba(#454545, 0.7)
+    line-height: 64px
+    opacity: 0
+    transform: scale(0.3) rotate(-360deg)
+    transition: 0.3s
+    .fa
+      font-size: 26px
+    +when('item:hover')
+      opacity: 1
+      transform: scale(1) rotate(0deg)
+
+
+  +e(preview-img)
+    width: 100%
+  +m(wide)
+    +e(list)
+      min-height: 400px
+    +e(item)
+      position: relative
+
+    +e(more)
+      background: $brand-color
+      color: #fff
+      display: block
+      text-align: center
+      padding: 30px 0
+      margin-top: 20px
+      margin-right: 20px
+    +e(btn)
+      color: #fff
+  +m(grid)
+    +e(item)
+      position: relative
+    +e(info)
+      background: #fff
+      +clearfix
+      +pd-lr(medium)
+      +pdb(1)
+
+    +e(name)
+      +m(caption)
+        +margin(0.2)
+        color: #fff
+        @media (max-width: $screen-md-max)
+          color: $title-color
+    +e(more)
+      +margin(1)
+      +rtl
+        margin-right: 15px
+      +m(caption)
+        +margin(0.5)
+        color: #fff
+        @media (max-width: $screen-md-max)
+          color: $brand-color
+    +e(more-svg)
+      fill: #fff
+      width: 20px
+      height: 19px
+      margin-left: 15px
+      position: relative
+      top: 5px
+      @media (max-width: $screen-md-max)
+        fill: $default-color
+    +e(comments)
+      +margin(1)
+    +e(preview)
+      position: relative
+    +e(icon)
+      color: #fff
+      opacity: 0
+      transition: 0.3s
+      position: absolute
+      top: 50%
+      left: 50%
+      margin: -30px 0 0 -30px
+      font-size: 60px
+      +when('item:hover')
+        opacity: 1
+      +m(caption)
+        margin-top: 0
+        color: #fff
+        font-size: 40px
+        display: block
+
+        @media (max-width: $screen-md-max)
+          display: none
+      @media (max-width: $screen-md-max)
+        color: $title-color
+
+    +e(caption)
+      @media (min-width: $screen-lg-min)
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        background: rgba(#000, 0.7)
+        opacity: 0
+        transition: 0.3s
+        text-align: center
+
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+        +when('item:hover')
+          opacity: 1
+      @media (max-width: $screen-md-max)
+        +clearfix
+        background: #fff
+        +pd-lr(normal)
+        +pd(0.5)

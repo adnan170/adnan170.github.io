@@ -1,0 +1,25 @@
+// BEGIN EVENT MAIN
+section.event.event--main.js-event(data-modifier='main')
+  .listing.listing--list.listing--event
+    each event, i in locals.data.events
+      if i < 3
+        .listing__item
+          .event__item.js-event-item(data-location='', data-phone='', data-email='', data-title=event.name)
+            .event__info
+              a.event__preview(href='event_details.html')
+                img.event__preview-img(src='#{path.media}/events/' + event.picture, alt='')
+              .event__details
+                h3.event__name
+                  a(href='event_details.html')= event.name
+                time.event__time(datetime="2016")
+                  svg.event__time-svg
+                    use(xlink:href='#icon-time')
+                  | #{event.time}
+
+            .event__actions
+              +event__links
+              a.btn--border-brand.event__register(href='event_details.html') Register
+            .clearfix
+            .event__form.js-form
+            .event__map.js-map
+// END EVENT MAIN

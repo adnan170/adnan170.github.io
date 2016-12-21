@@ -1,0 +1,89 @@
+/*------------------------------------------------------------------
+  * About / .about
+  * .about--columns
+  * .about--minimal
+  ******************************************************************/
++b(about)
+  +m(simple)
+    width: 465px
+    +clearfix
+    +pdb(3.5)
+    @media (max-width: $screen-md-max)
+      width: auto
+      padding-right: 15px
+    @media (max-width: $screen-xs-max)
+      +pdb(1)
+    +rtl
+      float: left
+
+    +e(details)
+      +margin(1)
+      p
+        color: #8c8c8c
+
+  +m(columns)
+    background: $panel-bg-color
+    +margin(3)
+    @media (max-width: $screen-xs-max)
+      margin-top: 0
+    +e(item)
+      +make-column($sm: 4, $sticky: true)
+      &:first-of-type .about__details:before
+        border-right: none
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+    +e(details)
+      padding: 0 40px
+      +margin(1)
+      +border-separator($panel-text-color)
+      @media (max-width: $screen-md-max)
+        padding: 0 15px
+      @media (max-width: $screen-xs-max)
+        padding: 0
+        &:before
+          border: none
+    +e(name)
+      margin-top: 0
+      +title-color(#fff)
+    +e(intro)
+      +margin(0.5)
+      color: $panel-text-color
+      p
+        margin-bottom: 0
+
+    +e(more-svg)
+      stroke-width: 1px
+      stroke: $brand-color
+    +e(more)
+      +margin(0.5)
+
+  +m(minimal)
+    +e(item)
+      +make-column($sm: 4, $sticky: true)
+      &:first-of-type .about__details
+        padding-left: 0
+        &:before
+          border-right: none
+    +e(details)
+      padding: 0 40px
+      +margin(1)
+      +border-separator($panel-text-color)
+      @media (max-width: $screen-xs-max)
+        padding: 0
+        &:before
+          border-right: none
+    +e(name)
+      margin-top: 0
+      text-transform: uppercase
+      +vr-fz(22)
+      +title-color(#fff)
+    +e(intro)
+      color: $panel-text-color
+      +margin(0.5)
+      p
+        margin-bottom: 0
+    +e(more)
+      +margin(0.5)
+    +e(more-svg)
+      stroke-width: 1px
+      stroke: $brand-color

@@ -1,0 +1,15 @@
+extends gallery
+block config
+  - var bodyClass = 'sidebar-hide';
+  - var page = 'gallery_caption--masonry=2';
+  - var pageTitle = 'Our gallery';
+  - var mainClass = 'main--subpage main--gallery';
+
+block gallery
+  +widget(null, 'listing')
+    .gallery.gallery--grid
+      .listing.listing--grid.listing--lg-6.js-isotope-grid
+        - var masonry = true;
+        - var caption = true;
+        each gallery, i in locals.data.gallery
+          include partials/widgets/gallery/gallery__item

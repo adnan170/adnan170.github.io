@@ -1,0 +1,24 @@
+// BEGIN POST PREVIEW
+section.post.post--preview
+  h2.widget__title Latest from our Blog
+  .post__item(class='post__item--0')
+    a.post__preview(class='post__preview--0', href='blog_details.html')
+      figure.post__figure(class='post__figure--0')
+        img.post__preview-img(src='#{path.media}/post/post-wide.jpg', alt='')
+    .post__details(class='post__details--0')
+      h3.post__name
+        a(href='blog_details.html') Empowering Episcops and the next generation.
+      time.post__time(datetime="2016") Sunday  |  Ian. 03  |  2016
+      a.btn--link.post__more(href='blog_details.html') Read more
+  each post, i in locals.data.posts
+    if i < 3
+      .post__item(class='post__item--' + (i + 1))
+        a.post__preview(class='post__preview--' + (i + 1), href='blog_details.html')
+          figure.post__figure(class='post__figure--' + (i + 1))
+            img.post__preview-img(src='#{path.media}/post/' + post.picture, alt='')
+        .post__details(class='post__details--' + (i + 1))
+          h3.post__name
+            a(href='blog_details.html') #{post.name}
+          time.post__time(datetime="2016") Sunday  |  Ian. 0#{i+4}  |  2016
+          a.btn--link.post__more(href='blog_details.html') Read more
+// END POST PREVIEW

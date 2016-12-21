@@ -1,0 +1,59 @@
+.listing__item
+  .sermon__item.js-sermon-item(data-id=i, data-poster='#{path.media}/sermons/1794x1010/' + sermon.picture, data-video=sermon.video, data-audio=sermon.audio, data-href='sermon_details.html')
+    unless sermonGrid
+      .sermon__video
+        .plyr
+          if i == 3
+            div(data-video-id="bofF_aRIILI", data-type="youtube")
+          else
+            video(poster='#{path.media}/sermons/1794x1010/' + sermon.picture, controls="")
+              source(src=sermon.video + ".mp4" type="video/mp4")
+              source(src=sermon.video + ".webm" type="video/webm")
+      .sermon__audio
+        .plyr
+          audio(controls crossorigin)
+            source(src=sermon.audio + ".mp3" type="audio/mp3")
+
+
+    a.sermon__preview(href='sermon_details.html')
+      if usePlaceholder && i % 2 == 0
+        img.sermon__preview-img(src='#{path.img}/no-photo--300x300.png', alt='')
+      else
+        img.sermon__preview-img(src='#{path.media}/sermons/490x390/' + sermon.picture, alt='')
+      figure.sermon__ministry
+        img.sermon__ministry-img(src='#{path.media}/members/avatar.png', alt='')
+        figcaption.sermon__ministry-name Pastor - #[strong Michael Tompson]
+
+    .sermon__info
+
+      time.sermon__time(datetime="2016")= sermon.time
+      h3.sermon__name
+        a(href='sermon_details.html')= sermon.name
+
+      nav.sermon__categories #[a John Stevenson] / #[a Worship] / #[a Faith] / #[a Love]
+
+      .sermon__intro
+        p We meet them right where they are, helping them create solutions they can maintain – and build on. Now she and her family have a new home. And it is very happy...
+
+      a.btn--link.sermon__more(href='sermon_details.html') Read more
+      a.btn--comments.sermon__comments(href='sermon_details.html')
+        i.fa.fa-comment
+        | 18 Comments
+
+
+    .sermon__bar
+      .sermon__links
+        a.sermon__link-item.js-sermon-video
+          svg.sermon__link-svg
+            use(xlink:href='#icon-video')
+        a.sermon__link-item.js-sermon-audio
+          svg.sermon__link-svg
+            use(xlink:href='#icon-audio')
+        a.sermon__link-item(href='http://codefactory47.com/public/webelieve/media/Psalms_023.mp3', target='_blank')
+          svg.sermon__link-svg
+            use(xlink:href='#icon-speaker')
+        a.sermon__link-item(href='http://codefactory47.com/public/webelieve/media/notes.pdf', target='_blank')
+          svg.sermon__link-svg
+            use(xlink:href='#icon-file')
+
+      .sermon__views 1545

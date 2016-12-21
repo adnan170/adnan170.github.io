@@ -1,0 +1,107 @@
+// BEGIN CAUSE DONATION
+section.cause.cause--donation
+  .cause__counter
+    .cause__circle
+      input.js-dapi-knob(type='text', value='68')
+    .cause__value 68
+      span.cause__value-measure %
+      .cause__value-label Funded
+    .cause__scope
+      span  $17.000
+      |  Pledged of
+      span  $55.000
+      |  Goal
+  .cause__details
+    h3.cause__name
+      a(href='cause_details.html') Helping Children with a life-limiting or life-threatening condition.
+    .cause__intro
+      p Educating children about the effects and risks associated with the use of drugs alcohol and tobacco; contributing to life-skills and health education programmes, utilising models of best practice by working in partnership with schools and others in the community.
+    a.btn--flat-rounded.cause__more.js-cause-donate-btn(href='donate.html') Donate
+  .cause__preview
+    a(href='cause_details.html')
+      img.cause__preview-img(src='#{path.media}/post/donation-1.jpg', alt='')
+    .social.social--donate
+      .social__list
+        a.social__item
+          .fa.fa-facebook
+        a.social__item
+          .fa.fa-twitter
+        a.social__item
+          .fa.fa-google-plus
+  .clearfix
+  .cause__form.js-cause-donate-form
+    h3 Donation information
+    form.form.js-parsley
+      h5 I would like to make a donation in the amount of:
+      .row
+        .form-group.form-group--donate
+          input.in-checkbox(type='checkbox', id='donate-20')
+          label.in-label(for='donate-20') $20
+        .form-group.form-group--donate
+          input.in-checkbox(type='checkbox', id='donate-50')
+          label.in-label(for='donate-50') $50
+        .form-group.form-group--donate
+          input.in-checkbox(type='checkbox', id='donate-100')
+          label.in-label(for='donate-100') $100
+        .form-group.form-group--donate
+          input.in-checkbox(type='checkbox', id='donate-200')
+          label.in-label(for='donate-200') $200
+        .form-group.form-group--donate
+          input.in-checkbox(type='checkbox', id='donate-500')
+          label.in-label(for='donate-500') $500
+        .form-group.form-group--inline
+          label.control-label(for='donate-custom') Or your amount:
+          input.form-control(type='text', id='donate-custom', placeholder='USD')
+
+      .row
+        .form-group.form-group--lg-6.required
+          label.control-label(for='donate-name') First Name
+          input.form-control(type='text', id='donate-name', required)
+
+        .form-group.form-group--lg-6.required
+          label.control-label(for='donate-last') Last Name
+          input.form-control(type='text', id='donate-last', required)
+
+        .form-group.form-group--lg-6.required
+          label.control-label(for='donate-email') Your E-mail
+          input.form-control(type='email', id='donate-email', required)
+
+        .form-group.form-group--lg-6
+          label.control-label(for='donate-phone') Your telephone
+          input.form-control(type='text', id='donate-phone', required)
+
+        .form-group.required.form-group--lg-6
+          label.control-label Telephone
+          input.form-control(type='text')
+        .form-group.form-group--lg-6
+          label.control-label Address and Street number
+          input.form-control(type='text')
+
+        .form-group.required.form-group--lg-6
+          label.control-label Zip Code
+          input.form-control(type='text')
+        .form-group.required.form-group--lg-6
+          label.control-label United States
+          select.form-control
+            option France
+            option USA
+            option Spain
+        .form-group.form-group--lg-6
+          label.control-label City
+          input.form-control(type='text')
+        .form-group.form-group--lg-6
+          label.control-label Please select region, state or province
+          select.form-control
+            option France
+            option USA
+            option Spain
+
+      .row
+        .form-group
+          input.in-checkbox(type='checkbox', id='anonymous')
+          label.in-label(for='anonymous') Please don't publish my name. I would like remain anonymous.
+
+      .cart.cart--account
+        .cart__submit
+          button.btn--flat.cart__btn Donate
+// END CAUSE DONATION

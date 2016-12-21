@@ -1,0 +1,43 @@
+// BEGIN SERMON COLUMN
+section.sermon.sermon--column.js-sermon(data-modifier='column')
+  each sermon, i in locals.data.sermons
+    if i > 3 && i < 8
+      .sermon__item.js-sermon-item(data-id=i, data-href='sermon_details.html')
+        figure.sermon__preview
+          a(href='sermon_details.html')
+            img.sermon__preview-img(src='#{path.media}/sermons/290x475/' + sermon.picture, alt='')
+
+        .sermon__video
+          .plyr.plyr--vertical
+            if i == 5
+              div(data-video-id="bofF_aRIILI", data-type="youtube")
+            else
+              video(poster='#{path.media}/sermons/290x475/' + sermon.picture, controls="")
+                source(src=sermon.video + ".mp4" type="video/mp4")
+                source(src=sermon.video + ".webm" type="video/webm")
+        .sermon__audio
+          .plyr
+            audio( controls='', crossorigin='')
+              source(src=sermon.audio + ".mp3" type="audio/mp3")
+
+        .sermon__info
+          figure.sermon__ministry
+            img.sermon__ministry-img(src='#{path.media}/members/avatar.png', alt='')
+          time.sermon__time(datetime="2016")= sermon.time
+          h3.sermon__name
+            a(href='sermon_details.html')= sermon.name
+          .sermon__links
+            a.sermon__link-item.js-sermon-video
+              svg.sermon__link-svg
+                use(xlink:href='#icon-video')
+            a.sermon__link-item.js-sermon-audio
+              svg.sermon__link-svg
+                use(xlink:href='#icon-audio')
+            a.sermon__link-item(href='http://codefactory47.com/public/webelieve/media/Psalms_023.mp3', target='_blank')
+              svg.sermon__link-svg
+                use(xlink:href='#icon-speaker')
+            a.sermon__link-item(href='http://codefactory47.com/public/webelieve/media/notes.pdf', target='_blank')
+              svg.sermon__link-svg
+                use(xlink:href='#icon-file')
+          a.btn--link.sermon__more(href='sermon_details.html') Read more
+// END SERMON COLUMN

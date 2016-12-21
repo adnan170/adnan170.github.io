@@ -1,0 +1,492 @@
+/*------------------------------------------------------------------
+  * Sermon / .sermon
+  * .sermon--main
+  * .sermon--column
+  * .sermon--ordered
+  * .sermon--sidebar
+  * .sermon--list
+  * .sermon--grid
+  * .sermon--details
+  ******************************************************************/
+=links-share
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
+  background: rgba(#000, 0.4)
+  padding: 10px 20px
+  transform: translateY(78px)
+  transition: 0.3s
+  +when('item:hover')
+    transform: translateY(0)
+
++b(sermon)
+  +e(item)
+    +clearfix
+  +e(views)
+    +vr-fz(15, $margin: sticky)
+    +ti-icon($ti-icon-eye, $margin: true)
+    font-weight: bold
+    color: #000
+    +rtl
+      text-align: center
+  +m(main)
+    +e(preview)
+      +lh-fix
+    +e(video)
+      transition: 0.3s
+      +when('item--video')
+        transform: translateY(-300px)
+
+    +e(audio)
+      transition: 0.3s
+      +when('item--audio')
+        transform: translateY(-350px)
+    +e(time)
+      display: block
+    +e(name)
+      margin-top: 0
+    +e(links)
+      +lh-fix
+      +make-column($xs: 3)
+      padding: 0
+      border: 1px solid $gray-color
+      td
+        border: 1px solid $gray-color
+        text-align: center
+    +e(link-item)
+      line-height: 1
+      display: block
+      padding: 11px 0
+      fill: $svg-color
+      +is('active')
+        background: $brand-color
+        fill: #fff
+      +on('hover')
+        background: $brand-color
+        fill: #fff
+
+    +e(link-svg)
+      width: 30px
+      height: 30px
+    +e(details)
+      +margin(1.5)
+      +m(list)
+        margin-top: 0
+
+    +e(info)
+      +make-column($xs: 9)
+      padding-left: 25px
+    +e(more)
+      +margin(0.5)
+
+
+  +m(column)
+    +e(list)
+      +margin(2)
+      padding: 0 15px
+    +e(item)
+      +make-column($md: 3, $sm: 6, $sticky: true)
+      position: relative
+      overflow: hidden
+    +e(info)
+      position: absolute
+      left: 0
+      right: 0
+      bottom: 0
+      background: rgba(#000, 0.4)
+      padding: 10px 20px
+      transform: translateY(79px)
+      transition: 0.3s
+      +when('item:hover')
+        transform: translateY(0)
+      +when('item--video')
+        transform: translateY(190px)
+      +when('item--audio')
+        transform: translateY(190px)
+      +when('item--video:hover')
+        transform: translateY(-106px)
+      +when('item--audio:hover')
+        transform: translateY(-78px)
+      @media (max-width: $screen-md-max)
+        transform: translateY(0)
+
+
+
+    +e(video)
+      display: none
+      +when('item--video')
+        display: block
+
+    +e(audio)
+      display: none
+      +when('item--audio')
+        display: block
+        position: absolute
+        bottom: 0
+        right: 0
+        left: 0
+
+    +e(ministry)
+      position: absolute
+      top: -40px
+      right: 10px
+      width: 80px
+      text-align: center
+      line-height: 80px
+      vertical-align: middle
+      +rtl
+        right: auto
+        left: 10px
+    +e(ministry-img)
+      border-radius: 40px
+      transition: 0.3s
+      width: 0
+      height: 0
+      +when('item:hover')
+        width: 80px
+        height: 80px
+      @media (max-width: $screen-xs-max)
+        width: 80px
+        height: 80px
+    +e(time)
+      color: #fff
+    +e(name)
+      color: #fff
+      margin-top: 0
+    +e(preview)
+
+      +when('item--video')
+        display: none
+
+    +e(preview-img)
+      width: 100%
+      transition: 3s
+      +when('item:hover')
+        transform: scale(1.3)  rotate(10grad)
+    +e(links)
+      +clearfix
+      +margin(0.5)
+    +e(link-item)
+      width: 60px
+      float: left
+      @media (max-width: $screen-md-max)
+        width: 40px
+    +e(link-svg)
+      fill: $brand-color
+      width: 30px
+      height: 30px
+    +e(more)
+      color: #fff
+
+  +m(ordered)
+    width: 65%
+    @media (max-width: $screen-md-max)
+      width: 80%
+    @media (max-width: $screen-xs-max)
+      width: 100%
+    +e(item)
+      background: #fff
+      padding: 0 40px
+      margin-top: 10px
+      @media (max-width: $screen-xs-max)
+        padding: 0 15px
+      +m(video)
+        +pdb(1)
+      +m(audio)
+        +pdb(1)
+    +e(info)
+      display: flex
+      flex-wrap: wrap
+
+    +e(video)
+      display: none
+    +e(audio)
+      display: none
+
+    +e(order)
+      +vr-fz(82)
+      margin-top: 20px
+      color: #f2f2f2
+      font-family: $font-family-title
+      width: 100px
+      @media (max-width: $screen-xs-max)
+        +vr-fz(50)
+        width: 50px
+    +e(time)
+      display: block
+      position: relative
+      top: -0.3em
+    +e(name)
+      margin-top: 0
+      +pdb(0.5)
+
+    +e(links)
+      border-top: 1px solid $gray-color
+      display: flex
+      justify-content: space-between
+    +e(link-item)
+      padding: 20px
+      fill: $brand-color
+      &:last-of-type
+        margin-right: 0
+      +is(active)
+        background: $brand-color
+        fill: #fff
+    +e(link-svg)
+      width: 30px
+      height: 30px
+    +e(details)
+      flex: 1
+      +margin(1)
+
+    +e(info)
+    +e(sep)
+      width: 100%
+
+    +e(ministry)
+      margin-right: -75px
+      width: 70px
+      height: 70px
+      border-radius: 35px
+      overflow: hidden
+      align-self: center
+      @media (max-width: $screen-xs-max)
+        margin-right: -25px
+      +rtl
+        margin-right: auto
+        margin-left: -75px
+        @media (max-width: $screen-xs-max)
+          margin-left: -25px
+    +e(ministry-img)
+      width: 100%
+    +e(more)
+      margin: 0 95px 0 auto
+      align-self: center
+      @media (max-width: $screen-xs-max)
+        margin-right: 0
+
+  +m(sidebar)
+    +e(preview)
+      +margin(1)
+      @media (max-width: $screen-sm-max)
+        width: 40%
+      @media (max-width: $screen-xs-min)
+        width: 100%
+    +e(details)
+      +clearfix
+    +e(author)
+      +vr-fz(13)
+      +margin(0.5)
+      font-style: italic
+      color: #000
+    +e(name)
+      +margin(0.5)
+      margin-top: 0
+    +e(info)
+      +margin(0.2)
+    +e(time)
+      font-style: italic
+    +e(intro)
+      +margin(0.2)
+      p
+        margin-bottom: 0
+
+
+  +m(list)
+    +e(item)
+      +clearfix
+      +pdb(1)
+      @media (max-width: $screen-xs-max)
+        padding-bottom: 0
+    +e(preview)
+      +make-column( $sm: 4)
+      +margin(1)
+      +lh-fix(15)
+      padding-left: 35px
+      text-align: center
+      +when(sidebar-hide, true)
+        +make-column($sm: 3)
+      @media (max-width: $screen-xs-max)
+        padding: 0
+        display: block
+        margin-top: 0
+
+    +e(video)
+      display: none
+    +e(audio)
+      display: none
+    +e(ministry)
+      margin-top: -40px
+    +e(ministry-name)
+      color: $default-color
+    +e(info)
+      +make-column($sm: 7)
+      padding-left: 0
+      +margin(1)
+      +clearfix
+      +when(sidebar-hide, true)
+        +make-column($sm: 8)
+      @media (max-width: $screen-xs-max)
+        padding-left: 15px
+        padding-right: 15px
+    +e(name)
+      +margin(0.2)
+
+    +e(categories)
+      +margin(0.2)
+
+    +e(time)
+      font-weight: 600
+    +e(bar)
+      +make-column($sm: 1, $sticky: true)
+      @media (min-width: $screen-sm-min)
+        float: left
+        right: -1px
+      @media (max-width: $screen-xs-max)
+        display: flex
+        padding: 0
+        +margin(1)
+    +e(links)
+      margin-bottom: 15px
+      margin-right: -1px
+      +pdb(0.5)
+      +clearfix
+      @media (max-width: $screen-xs-max)
+        margin-bottom: 0
+        padding-bottom: 0
+        margin-right: 0
+        flex: 1
+
+    +e(link-item)
+      display: block
+      background: $brand-color
+      +pd(0.5)
+      @media (max-width: $screen-xs-max)
+        padding-left: 10px
+        padding-right: 10px
+        float: left
+      +is(active)
+        background: $brand-color-dark
+    +e(link-svg)
+      fill: #fff
+      width: 30px
+      height: 30px
+      display: block
+      margin: 0 auto
+
+    +e(intro)
+      +margin(0.2)
+
+    +e(more)
+      float: left
+
+    +e(comments)
+      margin-left: 100px
+      float: left
+      @media (max-width: $screen-xs-max)
+        float: right
+        margin-left: 0
+
+    +e(views)
+      @media (max-width: $screen-xs-max)
+        line-height: 50px
+        padding: 0 15px
+
+
+  +m(grid)
+    +e(item)
+      background: #fff
+    +e(time)
+      font-weight: 600
+    +e(preview)
+      text-align: center
+      display: block
+
+    +e(preview-img)
+      width: 100%
+
+    +e(ministry)
+      margin-top: -60px
+    +e(ministry-name)
+      display: none
+    +e(info)
+      padding: 0 15px
+      +pdb(1)
+      +clearfix
+
+    +e(video)
+      display: none
+      +pdb(1)
+
+    +e(audio)
+      display: none
+      +pdb(1)
+
+    +e(name)
+      +margin(0.2)
+      +hide-overflow(3)
+
+    +e(categories)
+      +margin(0.5)
+      line-height: 1
+      a
+        line-height: 1
+
+    +e(links)
+      flex: 1
+      +clearfix
+
+    +e(link-item)
+      +pd(0.5)
+      text-align: center
+      float: left
+      padding-left: 6px
+      padding-right: 6px
+      background: $brand-color
+      +is(active)
+        background: $brand-color-dark
+      &:first-of-type
+        padding-left: 12px
+      &:last-of-type
+        padding-right: 12px
+    +e(link-svg)
+      fill: #fff
+      width: 30px
+      height: 30px
+      display: block
+
+    +e(intro)
+      +margin(0.5)
+      +hide-overflow(2)
+
+    +e(more)
+      +margin(0.5)
+      float: left
+
+    +e(comments)
+      +margin(0.5)
+      float: right
+
+    +e(bar)
+      display: flex
+
+    +e(views)
+      padding: 0 15px
+      line-height: 55px
+
+  +m(details)
+    +e(time)
+      flex: 1
+
+    +e(views)
+      padding: 0 15px
+
+    +e(speakers)
+      +margin(0.5)
+      a
+        color: $default-color
+        font-weight: 900
+
+    +e(social)
+      +margin(0.5)

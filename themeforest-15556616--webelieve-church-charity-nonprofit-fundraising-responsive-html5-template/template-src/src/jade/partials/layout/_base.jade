@@ -1,0 +1,61 @@
+- var projectTitle = 'We Believe - Church Responsive HTML Theme';
+//- Mixins
+include ../mixins/pagination
+include ../mixins/form
+include ../mixins/nav
+include ../mixins/toolbar
+include ../mixins/slider
+include ../mixins/widget
+include ../mixins/collapser
+include ../mixins/event__links
+
+block config
+  include config
+doctype html
+html
+  head(lang='en')
+    include head
+  body(class=bodyClass)
+    //
+      SVG icons from sprite-inline.svg
+      They are inlined in order to make them work,
+      when the template is opened directly, without
+      web-server
+
+      If you are loading theme files using a webserver,
+      you can remove this code and set loadSvgWithAjax: true
+      at the beginning of the file.
+
+      Or you can use sprite.svg directly.
+      All you need to do is to add "img/sprite.svg" before the icon name
+      and connect svg4everybody (https://github.com/jonathantneal/svg4everybody) plugin for IE support
+
+      For example:
+      <use xlink:href="#icon-area"></use>
+      becomes
+      <use xlink:href="img/sprite.svg#icon-area"></use>
+
+    <!-- inject:svg -->
+    <!-- endinject -->
+    .box
+      block before_header
+      block header
+        include topbar/topbar
+        include headers/header
+
+      // BEGIN BEFORE MAIN SECTION
+      block before_main
+      // END BEFORE MAIN SECTION
+      // BEGIN MAIN SECTION
+      main.main(class=mainClass)
+        block main
+      // END MAIN SECTION
+      // BEGIN AFTER MAIN SECTION
+      block after_main
+      // END AFTER MAIN SECTION
+      +widget(null, 'subscribe')
+        include ../widgets/subscribe
+
+      include footer
+
+    include foot

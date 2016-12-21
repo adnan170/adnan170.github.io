@@ -1,0 +1,12 @@
+- var sermon = locals.data.sermons[1];
+.post.post--recent
+  .post__list
+    each post, i in locals.data.posts
+      if i < 3
+        .post__item(class='post__item--' + i)
+          a.post__preview(class='post__preview--' + i, href='blog_details.html')
+            figure.post__figure(class='post__figure--' + i)
+              img.post__preview-img(src='#{path.media}/post/390x290/' + post.picture, alt='')
+          .post__details(class='post__details--' + i)
+            h4.post__name
+              a(href='blog_details.html') #{post.name}

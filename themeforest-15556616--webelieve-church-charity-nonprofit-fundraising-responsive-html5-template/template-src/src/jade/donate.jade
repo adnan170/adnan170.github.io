@@ -1,0 +1,85 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = 'sidebar-hide';
+  - var page = 'donate';
+  - var pageTitle = 'Donate';
+  - var mainClass = 'main--subpage main--causes';
+
+block content
+  form.form.form--donate.js-parsley
+
+    +widget('Donation information', 'card account')
+      h5 I would like to make a donation in the amount of:
+      .row
+        .form-group.form-group--donate
+          input.in-checkbox(type='checkbox', id='donate-20')
+          label.in-label(for='donate-20') $20
+        .form-group.form-group--donate
+          input.in-checkbox(type='checkbox', id='donate-50')
+          label.in-label(for='donate-50') $50
+        .form-group.form-group--donate
+          input.in-checkbox(type='checkbox', id='donate-100')
+          label.in-label(for='donate-100') $100
+        .form-group.form-group--donate
+          input.in-checkbox(type='checkbox', id='donate-200')
+          label.in-label(for='donate-200') $200
+        .form-group.form-group--donate
+          input.in-checkbox(type='checkbox', id='donate-500')
+          label.in-label(for='donate-500') $500
+        .form-group.form-group--inline
+          label.control-label(for='donate-custom') Or your amount:
+          input.form-control(type='text', id='donate-custom', placeholder='USD')
+
+    +widget(null, 'card account')
+      .row
+        .form-group.form-group--lg-6.required
+          label.control-label(for='donate-name') First Name
+          input.form-control(type='text', id='donate-name', required)
+
+        .form-group.form-group--lg-6.required
+          label.control-label(for='donate-last') Last Name
+          input.form-control(type='text', id='donate-last', required)
+
+        .form-group.form-group--lg-6.required
+          label.control-label(for='donate-email') Your E-mail
+          input.form-control(type='email', id='donate-email', required)
+
+        .form-group.form-group--lg-6.required
+          label.control-label(for='donate-phone') Your telephone
+          input.form-control(type='text', id='donate-phone', required)
+
+        .form-group.required.form-group--lg-6
+          label.control-label Telephone
+          input.form-control(type='text')
+        .form-group.form-group--lg-6
+          label.control-label Address and Street number
+          input.form-control(type='text')
+
+        .form-group.required.form-group--lg-6
+          label.control-label Zip Code
+          input.form-control(type='text')
+        .form-group.required.form-group--lg-6
+          label.control-label United States
+          select.form-control
+            option France
+            option USA
+            option Spain
+        .form-group.form-group--lg-6
+          label.control-label City
+          input.form-control(type='text')
+        .form-group.form-group--lg-6
+          label.control-label Please select region, state or province
+          select.form-control
+            option France
+            option USA
+            option Spain
+
+      .row
+        .form-group
+          input.in-checkbox(type='checkbox', id='anonymous')
+          label.in-label(for='anonymous') Please don't publish my name. I would like remain anonymous.
+
+    +widget(null, 'card account')
+      .cart.cart--account
+        .cart__submit
+          button.btn--flat.cart__btn Donate

@@ -1,0 +1,84 @@
+extends _base
+
+block main
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') #{pageTitle}
+  // END BREADCRUMBS
+  // BEGIN MAIN HEAD
+  header.main__head
+    h1.main__title #{pageTitle}
+  // END MAIN HEAD
+
+  .container
+    .main__wrap
+      // BEGIN MAIN CONTENT
+      .main__content
+        block content
+      // END MAIN CONTENT
+      // BEGIN SIDEBAR
+      aside.sidebar
+        block sidebar
+          unless bodyClass === 'sidebar-hide'
+            case sidebarTitle
+              when 'Event'
+                +widget(sidebarTitle +' categories', 'sidebar')
+                  include ../chunks/list
+                +widget('Coming Event', 'sidebar')
+                  include ../widgets/event/event--sidebar
+              when 'Sermon'
+                +widget(sidebarTitle + ' categories', 'sidebar')
+                  include ../chunks/list
+                +widget('Coming sermon', 'sidebar')
+                  include ../widgets/sermon/sermon--sidebar
+                +widget(sidebarTitle +' tags', 'sidebar')
+                  include ../chunks/tags
+                +widget(sidebarTitle + ' archives', 'sidebar')
+                  include ../chunks/list_archive
+              when 'Blog'
+                +widget(sidebarTitle + ' categories', 'sidebar')
+                  include ../chunks/list
+                +widget(sidebarTitle + ' tags', 'sidebar')
+                  include ../chunks/tags
+                +widget(sidebarTitle + ' archives', 'sidebar')
+                  include ../chunks/list_archive
+                +widget('Recent Post', 'sidebar')
+                  include ../widgets/post/post--recent
+                +widget('Last comments', 'sidebar')
+                  include ../chunks/comment--sidebar
+              when 'Shop'
+                +widget('Shopping cart', 'sidebar')
+                  include ../widgets/cart/cart--sidebar
+                +widget('Product search', 'sidebar')
+                  include ../widgets/products/products--search
+                +widget('Product search', 'sidebar')
+                  include ../widgets/products/products--filter
+
+                +widget('Filter by price', 'sidebar')
+                  include ../widgets/products/products--top
+              when 'Cart'
+                +widget('Shopping cart', 'sidebar')
+                  include ../widgets/cart/cart--sidebar
+                +widget('Top rated products', 'sidebar')
+                  include ../widgets/products/products--top
+              when 'Causes'
+                +widget(sidebarTitle + ' categories', 'sidebar')
+                  include ../chunks/list
+                +widget(sidebarTitle + ' tags', 'sidebar')
+                  include ../chunks/tags
+                +widget(sidebarTitle + ' archives', 'sidebar')
+                  include ../chunks/list_archive
+                +widget('Featured cause', 'sidebar')
+                  include ../widgets/cause/cause--sidebar
+              default
+                +widget('Coming Event', 'sidebar')
+                  include ../widgets/event/event--sidebar
+                +widget('Coming sermon', 'sidebar')
+                  include ../widgets/sermon/sermon--sidebar
+
+      // END SIDEBAR

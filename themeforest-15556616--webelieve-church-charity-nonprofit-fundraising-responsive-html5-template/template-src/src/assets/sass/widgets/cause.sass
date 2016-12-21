@@ -1,0 +1,383 @@
+/*------------------------------------------------------------------
+  * Cause / .cause
+  * .cause--donation
+  * .cause--list
+  * .cause--grid
+  * .cause--details
+  * .cause--sidebar
+  ******************************************************************/
++b(cause)
+  +e(preview-img)
+    width: 100%
+  +e(value)
+    position: absolute
+    top: 24%
+    left: 0
+    right: 0
+    text-align: center
+    font-family: $font-family-title
+    font-weight: bold
+    +fz(120)
+    color: #fff
+    line-height: 0.7
+  +e(value-measure)
+    font-weight: normal
+    font-size: 0.5em
+  +e(value-label)
+    font-size: 0.3em
+    font-weight: normal
+  +e(details)
+    +clearfix
+  +e(scope)
+    text-align: center
+    text-transform: uppercase
+    +margin(0.5)
+    span
+      color: #fff
+  +e(counter)
+    position: relative
+  +e(info)
+  +e(donated)
+    color: $brand-color
+  +e(raised)
+    +when('donation-bar')
+      float: right
+  +e(bar)
+    border-radius: 5px
+    background: $gray-color
+    +margin(0.2)
+  +e(progress)
+    +margin(0.2)
+    border-radius: 5px
+    background: $brand-color
+    height: 6px
+
+  +m(donation)
+    @media (max-width: $screen-xs-max)
+      text-align: center
+    +e(counter)
+      +make-column($sm: 3)
+      +lh-fix(24)
+      @media (max-width: $screen-xs-max)
+        width: 250px
+        margin: 0 auto
+    +e(value)
+      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+        +fz(90)
+        top: 20%
+    +e(details)
+      +make-column($sm: 6)
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+    +e(name)
+      color: #fff
+      margin-top: 0
+    +e(intro)
+      color: $panel-text-color
+      +margin(1)
+      p
+        margin-bottom: 0
+    +e(preview)
+      +make-column($sm: 3)
+      +lh-fix(24)
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+
+    +e(more)
+      +margin(1)
+
+    +e(form)
+      display: none
+      width: 70%
+      margin: 0 auto
+      +margin(2)
+      @media (max-width: $screen-md-max)
+        width: 100%
+        text-align: left
+      h3,
+      h5
+        color: #fff
+      .in-label
+        color: #fff
+
+
+  +m(list)
+    +e(preview)
+      text-align: center
+      background: #fff
+      display: block
+
+    +e(preview-img)
+      +m(grid)
+        display: none
+
+    +e(details)
+      background: #fff
+      +pdb(1)
+      +pd-lr(normal)
+
+
+    +e(info)
+      +make-column($md: 7, $sm: 6)
+      +m(wide)
+        width: 100%
+
+    +e(counter)
+      +make-column($sm: 7, $xs: 6)
+      padding: 0
+
+    +e(name)
+      +margin(0.5)
+      +hide-overflow(3)
+
+    +e(categories)
+      +margin(0.2)
+
+    +e(intro)
+      +margin(0.2)
+      +hide-overflow(3)
+    +e(donation)
+      +margin(0.5)
+      +make-column($md: 5, $sm: 6)
+      padding: 0
+      +m(wide)
+        width: 100%
+        margin-top: 0
+        position: relative
+        padding: 0
+        +pdt(0.5)
+        &:before
+          content: ' '
+          display: block
+          position: absolute
+          top: 0
+          left: 15px
+          right: 15px
+          border-bottom: 1px solid $border-color
+        @media (max-width: $screen-xs-max)
+          +margin(1)
+          &:before
+            left: 0
+            right: 0
+
+    +e(donate)
+      +margin(1.8)
+      padding-left: 20px
+      padding-right: 20px
+      @media (max-width: $screen-sm-max)
+        +margin(2)
+      @media (max-width: $screen-xs-max)
+        +margin(2.7)
+      +when('donation-column')
+        +margin(0.3)
+        margin-left: 30px
+        @media (max-width: $screen-xs-max)
+          margin-left: 0
+          +margin(1)
+    +e(donation-bar)
+      +make-column($sm: 6)
+    +e(donation-column)
+      +make-column($sm: 6)
+      display: flex
+      justify-content: flex-end
+      flex-wrap: wrap
+      align-items: center
+      @media (max-width: $screen-xs-max)
+        justify-content: space-between
+      +rtl
+        justify-content: flex-start
+      .social--cause
+        @media (max-width: $screen-xs-max)
+          +margin(0.5)
+
+
+    +e(circle)
+      margin: 0 auto
+      width: 135px
+    +e(value)
+      +fz(50)
+      color: $default-color
+      top: 45px
+    +e(value-measure)
+    +e(value-label)
+      text-transform: none
+    +e(scope)
+      +make-column($sm: 5, $xs: 6)
+      padding: 0
+    +e(scope-donated)
+      +vr-fz(30, $margin: sticky)
+      color: $brand-color
+      text-align: center
+      display: block
+    +e(scope-label)
+      +vr-fz(15, $margin: sticky)
+      color: $brand-color
+      text-align: center
+      display: block
+      margin-top: -15px
+      text-transform: none
+    +e(scope-total)
+      +vr-fz(13, $margin: sticky)
+      text-align: center
+      display: block
+      color: $default-color
+      text-transform: none
+
+  +m(grid)
+    +e(preview)
+      text-align: center
+      background: #fff
+      display: block
+
+    +e(preview-img)
+      +m(list)
+        display: none
+
+    +e(details)
+      background: #fff
+      +pd-lr(big)
+      +pdb(1)
+    +e(info)
+    +e(counter)
+      +make-column($xs: 6)
+      padding: 0
+
+    +e(name)
+      +margin(0.5)
+      +hide-overflow(3)
+
+    +e(categories)
+      +margin(0.2)
+
+    +e(intro)
+      +margin(0.2)
+      +hide-overflow(2)
+    +e(donation)
+      +margin(0.5)
+
+    +e(donate)
+      +margin(0.5)
+      padding-left: 20px
+      padding-right: 20px
+      @media (max-width: $screen-sm-max)
+        +margin(0.7)
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+    +e(circle)
+      margin: 0 auto
+      width: 105px
+    +e(value)
+      font-size: 50px
+      color: $default-color
+      top: 33px
+    +e(value-measure)
+      font-size: 25px
+    +e(value-label)
+      font-size: 15px
+      text-transform: none
+
+    +e(scope)
+      +make-column($xs: 6)
+      padding: 0
+    +e(scope-donated)
+      +vr-fz(30, $margin: sticky)
+      color: $brand-color
+      text-align: center
+      display: block
+    +e(scope-label)
+      +vr-fz(15, $margin: sticky)
+      color: $brand-color
+      text-align: center
+      display: block
+      margin-top: -15px
+      text-transform: none
+    +e(scope-total)
+      +vr-fz(13, $margin: sticky)
+      text-align: center
+      display: block
+      color: $default-color
+      text-transform: none
+
+  +m(details)
+    +e(categories)
+      +margin(0.5)
+    +e(donate)
+      +margin(1)
+      +m(big)
+        +margin(1.5)
+        padding: 10px 40px
+        font-size: 20px
+        width: 250px
+        margin-left: auto
+        margin-right: auto
+        display: block
+        &:active
+          padding-top: 14px
+          padding-bottom: 6px
+        @media (max-width: $screen-xs-max)
+          +margin(1)
+
+    +e(circle)
+      margin: 0 auto
+      width: 240px
+    +e(value)
+      font-size: 108px
+      color: $brand-color
+      top: 80px
+    +e(value-measure)
+      font-size: 50px
+      color: $gray-color
+      display: block
+    +e(donation)
+    +e(counter)
+      +make-column($sm: 6)
+    +e(info)
+      +make-column($sm: 6)
+    +e(info-list)
+      +ul
+    +e(info-item)
+      color: $title-color
+      +margin(1)
+      strong
+        color: $brand-color
+    +e(info-goal)
+      +fz(50)
+      font-family: $font-family-title
+      font-weight: normal
+      line-height: 1
+    +e(info-svg)
+      fill: $svg-color
+      width: 30px
+      height: 30px
+      margin-right: 20px
+      float: left
+      +m(heart)
+        margin-top: 10px
+      +m(calendar)
+        fill: none
+        stroke: $svg-color
+        stroke-width: 2px
+    +e(mess)
+      +margin(1.5)
+      text-align: center
+    +e(form)
+      display: none
+
+  +m(sidebar)
+    +e(preview)
+      +margin(1)
+      @media (max-width: $screen-sm-max)
+        width: 40%
+      @media (max-width: $screen-xs-min)
+        width: 100%
+    +e(name)
+      +margin(0.5)
+    +e(info)
+      +margin(0.5)
+    +e(intro)
+      +margin(0.5)
+      > p
+        margin-bottom: 0
+    +e(donate)
+      +margin(1)
+

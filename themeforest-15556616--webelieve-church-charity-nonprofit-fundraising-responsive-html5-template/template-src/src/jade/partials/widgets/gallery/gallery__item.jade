@@ -1,0 +1,30 @@
+.listing__item(class='listing__item--' + gallery.category)
+  .gallery__item
+    a.gallery__preview(href='gallery_details.html')
+      if masonry
+        img.gallery__preview-img.gallery__preview-img--list(src='#{path.media}/gallery/masonry/' + gallery.picture, alt='')
+      else
+        img.gallery__preview-img.gallery__preview-img--list(src='#{path.media}/gallery/575x323/' + gallery.picture, alt='')
+      unless caption
+        i.fa.fa-link.gallery__icon
+    if caption
+      .gallery__caption
+        .gallery__caption-wrap
+          i.fa.fa-link.gallery__icon--caption
+          h3.gallery__name--caption
+            a(href='gallery_details.html')= gallery.name
+
+          a.btn--link.gallery__more--caption(href='gallery_details.html')
+            | Read more
+
+    else
+      .gallery__info
+        h3.gallery__name
+          a(href='gallery_details.html')= gallery.name
+
+
+        a.btn--comments.gallery__comments(href='gallery_details.html')
+          i.fa.fa-comment
+          | 18 Comments
+
+        a.btn--link.gallery__more(href='gallery_details.html') Read more

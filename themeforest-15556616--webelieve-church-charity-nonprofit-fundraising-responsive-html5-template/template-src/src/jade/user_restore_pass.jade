@@ -1,0 +1,12 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = 'sidebar-hide';
+  - var page = 'user_restore_pass';
+  - var pageTitle = 'Authorization';
+  - var mainClass = 'main--subpage main--default';
+
+block content
+  +widget('Restore password', 'card')
+    .auth--inline
+      - formType = 'inline';
+      include partials/chunks/auth/restore

@@ -1,0 +1,22 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'feature_no_content';
+  - var pageTitle = 'Our sermons';
+  - var sidebarTitle = 'Sermon';
+  - var mainClass = 'main--subpage main--sermons';
+
+block content
+  +widget(null, 'listing')
+    .no-content
+      svg.no-content__icon
+        use(xlink:href='#icon-no-content')
+      h2.no-content__title There is no event, sermon or blog article in this category.
+  +widget(null, 'listing')
+    .sermon.sermon--list.js-switch-view.js-sermon(data-modifier='list', data-view='sermon')
+      .listing.listing--list
+        each sermon, i in locals.data.sermons
+          if i < 3
+            - var usePlaceholder = true;
+            include partials/widgets/sermon/sermon__item
+

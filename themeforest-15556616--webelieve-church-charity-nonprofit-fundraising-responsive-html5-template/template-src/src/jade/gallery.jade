@@ -1,0 +1,26 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = 'sidebar-hide';
+  - var page = 'gallery';
+  - var pageTitle = 'Our gallery';
+  - var mainClass = 'main--subpage main--gallery';
+
+block content
+  +widget(null, 'card panel')
+    .nav--filter
+      - var navGallery = [{title: 'Show All', category: '*'}, {title: 'Images', category: 'images'}, {title: 'Links', category: 'link'}, {title: 'Slideshow', category: 'slideshow'}, {title: 'Video', category: 'video'}, {title: 'Audio', category: 'audio'}]
+      ul.nav__list
+        each item, i in navGallery
+          li.nav__item
+            a.nav__link.js-isotope-filter(data-filter=item.category, class= i == 0 ? 'active' : '')= item.title
+
+  block gallery
+    +widget(null, 'listing')
+      .gallery.gallery--grid
+        .listing.listing--grid.js-isotope-grid.js-listing
+          //- var masonry = true;
+          each gallery, i in locals.data.gallery
+            include partials/widgets/gallery/gallery__item
+
+        .listing__footer
+          button.btn--border-brand.listing__more.js-listing-more Load more

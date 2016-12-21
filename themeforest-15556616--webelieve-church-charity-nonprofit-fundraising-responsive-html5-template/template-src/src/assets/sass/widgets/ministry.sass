@@ -1,0 +1,52 @@
+/*------------------------------------------------------------------
+  * Ministry / .ministry
+  ******************************************************************/
++b(ministry)
+  +e(column)
+    +m(left)
+      +make-column($lg: 5)
+    +m(right)
+      +make-column($lg: 7, $sticky: true)
+
+  +e(intro)
+    padding-right: 60px
+    +margin(5)
+    @media (max-width: $screen-md-max)
+      padding: 0
+      +margin(1)
+    +rtl
+      padding: 0
+  +e(gallery)
+    +lh-fix(25)
+  +e(gallery-item)
+    float: left
+    position: relative
+    overflow: hidden
+    &:hover
+      .ministry__gallery-caption
+        transform: translateY(0)
+    @media (max-width: $screen-xs-max)
+      float: none
+      display: block
+      &:nth-of-type(n+4)
+        display: none
+
+
+  +e(gallery-caption)
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    +gradient-vertical(rgba(#000, 0), rgba(#000, 0.5))
+    color: #fff
+    text-align: right
+    text-transform: uppercase
+    font-family: $font-family-title
+    font-weight: 700
+    padding: 60px 14px 0 0
+    transition: 0.3s
+    transform: translateY(60px)
+    @media (max-width: $screen-md-max)
+      transform: translateY(0)
+  +e(gallery-img)
+    width: 100%

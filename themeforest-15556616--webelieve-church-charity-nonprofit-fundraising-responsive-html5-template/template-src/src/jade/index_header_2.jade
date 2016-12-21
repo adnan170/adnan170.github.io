@@ -1,0 +1,16 @@
+extends index_base
+block config
+  - var bodyClass = 'scroll-animation';
+  - var page = 'index_header_2';
+
+block header
+  include partials/layout/topbar/topbar--v2
+  include partials/layout/headers/header--v2
+
+block slider
+  +widget
+    - var slides = locals.data.slider.slice(0);
+    - var slide = slides[1];
+    - slides.splice(1, 1);
+    - slides.splice(0, 0, slide);
+    +slider(2, {'data-arrows': 'true', 'data-asNavFor': 'true', 'data-dots': 'false'}, slides)

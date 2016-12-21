@@ -1,0 +1,22 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = 'scroll-animation';
+  - var page = 'index_3';
+
+block main
+  +widget
+    +slider(1, {'data-arrows': 'true', 'data-asNavFor': 'true', 'data-dots': 'false'}, locals.data.slider)
+  +widget(null, 'landing panel-bg minimal')
+    include partials/widgets/about/about--minimal
+  +widget(null, 'landing title-big')
+    include partials/widgets/nextevent/nextevent--counttimer
+  +widget(null, 'landing title-big sermon')
+    include partials/widgets/sermon/sermon--ordered
+  +widget('Upcoming Events', 'landing title-big')
+    include partials/widgets/event/event--split
+  +widget(null, 'landing gray title-big')
+    include partials/widgets/ministry
+  +widget(null, 'landing title-big products')
+    include partials/widgets/products/products--main
+  +widget(null, 'landing title-big post')
+    include partials/widgets/post/post--preview

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="49" height="49" viewBox="0 0 49 49">
+  <g>
+    <circle cx="24.5" cy="24.5" r="23.5"/>
+    <path d="M11.000,16.999 L17.000,16.999 L20.000,27.998 L31.000,27.998 L33.000,22.998 L18.000,22.998 "/>
+    <circle cx="22" cy="34" r="2" />
+    <circle cx="29" cy="34" r="2"/>
+  </g>
+</svg>

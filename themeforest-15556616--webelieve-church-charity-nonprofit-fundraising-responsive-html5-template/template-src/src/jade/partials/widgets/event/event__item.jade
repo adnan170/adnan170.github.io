@@ -1,0 +1,31 @@
+.listing__item
+  .event__item.js-event-item
+    .event__preview
+      span.event__status= event.status
+      a.event__preview-link(href='event_details.html')
+        img.event__preview-img(src='#{path.media}/events/390x290/' + event.picture, alt='')
+      +event__links
+
+    .event__details
+      h3.event__name
+        a(href='event_details.html')= event.name
+
+      h5.event__organaizer Organizer -
+        strong We Beleive Church
+
+      .event__info
+        span.event__time
+          svg.event__info-svg
+            use(xlink:href='#icon-time')
+          | #{event.time}
+        h6.event__location
+          svg.event__info-svg
+            use(xlink:href='#icon-location')
+          | #{event.address}
+
+      .clearfix
+      .event__price $#{event.price}
+      a.btn--link.event__more(href='event_details.html') Read more
+    .clearfix
+    .event__form.js-form
+    .event__map.js-map

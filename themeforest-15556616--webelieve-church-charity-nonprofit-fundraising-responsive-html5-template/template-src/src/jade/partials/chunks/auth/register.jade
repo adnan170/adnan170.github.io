@@ -1,0 +1,31 @@
+// BEGIN AUTH REGISTER
+form.form.form--auth.form--register.js-parsley(action='#')
+  h5.form__title Sign up a new account
+  .row
+    .form-group
+      label.control-label(for='register-name-' + formType) First name
+      input.form-control(type='text', name='username', id='register-name-' + formType, required)
+
+    .form-group
+      label.control-label(for='register-lastname-' + formType) Last name
+      input.form-control(type='text', name='name', id='register-lastname-' + formType, required)
+
+  .row
+    .form-group
+      label.control-label(for='register-email-' + formType) E-mail
+      input.form-control(type='email', name='email', id='register-email-' + formType, required)
+
+    .form-group
+      label.control-label(for='register-password-' + formType) Password
+      input.form-control(type='password', name='password', id='register-password-' + formType, required)
+
+  .row
+    span.form__links Back to
+      if formType == 'inline'
+        a(href='user_login.html') Log In
+      else
+        button(type='button').js-auth-login Log In
+
+    button.btn--flat.form__submit(type='submit') Sign up
+// end of block .form-register
+// END FORM REGISTER

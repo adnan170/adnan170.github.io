@@ -1,0 +1,38 @@
+mixin comment(avatar, warning)
+  .comment__item
+    .comment__avatar
+      img(src='#{path.media}/avatars/#{avatar}.png', alt='')
+
+    .comment__info
+      .comment__info-left
+        h3.comment__author David Walker
+        time.comment__time(datetime="2016") August 29, 2015 at 9:16 pm
+      .comment__info-right
+        button.btn--flat-small.comment__reply.js-comment-reply Reply
+
+    .comment__body(class= warning ? 'comment__body--warning' : '')
+      if warning
+        h5 Your comment is awaiting moderation.
+      p Working on local and international brands, we use all available artistic means which allow us to find the best solution for our clients. Mixing photography, illustration, 3D and CGI all seamlessly together, we are able to create styled images fitted perfectly for each project.
+
+    // end of block .comment__item
+
++widget(null, 'card')
+  .comment.comment--list
+    header.comment__header
+      h6.comment__header-comment
+        i.fa.fa-comment
+        | Comments (23)
+      h6 You must be #[a logged] in to post a comment.
+
+    .comment__list
+      +comment(1)
+      +comment(2)
+      .comment__children
+        +comment(1, true)
+      +comment(2)
+
++widget('Leave a comment', 'card')
+  .comment__form
+    +form('comment')
+  // end of block .comment__form

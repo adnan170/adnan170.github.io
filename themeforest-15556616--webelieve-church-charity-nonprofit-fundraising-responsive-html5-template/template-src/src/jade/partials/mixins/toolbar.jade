@@ -1,0 +1,40 @@
+mixin toolbar(type)
+  // BEGIN toolbar
+  .toolbar(class='toolbar--v' + type)
+    .toolbar__lang.js-toolbar-lang.dropdown
+      button.dropdown-toggle.toolbar__lang-btn(data-toggle='dropdown', type='button') En
+      .dropdown-menu
+        .toolbar__lang-dropdown(role='menu')
+          a.toolbar__lang-link(href='#') English
+          a.toolbar__lang-link(href='#') Francais
+          a.toolbar__lang-link(href='#') Italian
+          a.toolbar__lang-link(href='#') Russian
+  
+    if user
+      .toolbar__auth-item.dropdown.js-auth-item
+        button.dropdown-toggle.toolbar__auth-btn(data-toggle='dropdown', type='button')
+          svg.toolbar__icon-user
+            use(xlink:href='#icon-user')
+          | Hi Jenifer
+        .dropdown-menu
+          .auth.auth--logged-in.js-user-logged-in
+            h1 FFFF
+    else
+      - var formType = 'dropdown';
+      .dropdown.toolbar__auth-item.js-auth-item
+        button.dropdown-toggle.toolbar__auth-btn.toolbar__auth-btn--login(data-toggle='dropdown', type='button')
+          svg.toolbar__icon-user
+            use(xlink:href='#icon-user')
+        .dropdown-menu
+          .toolbar__auth-form.js-auth-login-form
+            include ../chunks/auth/login
+          .toolbar__auth-form.js-auth-restore-form
+            include ../chunks/auth/restore
+          .toolbar__auth-form.js-auth-register-form
+            include ../chunks/auth/register
+
+    unless type === 2
+      .toolbar__search.js-toolbar-search
+        input.form-control(type='text', placeholder='')
+        button.toolbar__search-btn.js-toolbar-search-btn(type='button')
+  // END toolbar

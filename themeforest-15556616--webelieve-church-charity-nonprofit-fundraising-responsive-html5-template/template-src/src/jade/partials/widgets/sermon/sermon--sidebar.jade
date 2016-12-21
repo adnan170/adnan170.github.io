@@ -1,0 +1,17 @@
+- var sermon = locals.data.sermons[1];
+.sermon.sermon--sidebar
+  .sermon__item
+    .sermon__preview
+      a.sermon__preview-link(href='sermon_details.html')
+        img.sermon__preview-img(src='#{path.media}/sermons/sermon-1.jpg', alt='')
+
+    .sermon__details
+      .sermon__author by John Stevenson
+      h4.sermon__name
+        a(href='sermon_details.html')= sermon.name
+      .sermon__info
+        time.sermon__time(datetime="2016")
+          | 25 March, 2015 at 2 pm
+
+      .sermon__intro
+        p Every mountain top is within reach if you just keep climbing. We affirm the power of individuals...

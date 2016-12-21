@@ -1,0 +1,19 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'events_list';
+  - var pageTitle = 'Our events';
+  - var sidebarTitle = 'Event';
+  - var mainClass = 'main--subpage main--events';
+
+block content
+  include partials/chunks/filters
+  +widget(null, 'listing')
+    .event.event--list.js-switch-view.js-event(data-modifier='list', data-view='event')
+      .listing.listing--list
+        each event, i in locals.data.events
+          include partials/widgets/event/event__item
+        each event, i in locals.data.events
+          include partials/widgets/event/event__item
+  +pagination('event', true)
+

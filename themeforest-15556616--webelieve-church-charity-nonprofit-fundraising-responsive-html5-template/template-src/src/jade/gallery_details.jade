@@ -1,0 +1,40 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = 'sidebar-hide';
+  - var page = 'gallery_details';
+  - var pageTitle = 'Our gallery';
+  - var sidebarTitle = 'Gallery';
+  - var mainClass = 'main--subpage main--gallery';
+
+block content
+  - var post = locals.data.posts[0];
+  +widget(null, 'card details')
+    .post.post--details
+      time.post__time(datetime="2016")
+        svg.post__time-svg
+          use(xlink:href='#icon-time')
+        | Friday, August 25, 2015
+      .widget__header-title
+        h2.widget__title During the season of Advent, we as a church focus on Jesus’ first coming and second coming.
+      .post__author #[i by] #[a Edgar Smith]
+
+      .widget__preview
+        +slider(7, {'data-arrows': 'true', 'data-asNavFor': 'false', 'data-dots': 'true'}, locals.data.slider)
+
+      .widget__description.widget__description--columns
+        p The image of God with skin on, the resurrected one, is at work all around us if we will only look. Sometimes it takes a long time, and our awareness often begins to grow in the midst of thanksgiving. As part of its 175th anniversary celebration, St. John’s in City Point Hopewell is re-membering the body by telling the story of Mrs. Paulina Eppes, born a slave in 1848. Her father, too, was a slave, who served as the church’s sexton most of his adult life. When he died in 1876, he was the first black man to be buried in the church’s cemetery.
+        p Paulina’s husband became the next sexton, but when died in 1889, the congregation wouldn’t permit his burial there. Paulina Eppes lived almost a century, long enough to become a beloved matriarch in that congregation, and when she died in 1946, she was buried next to her father, in an unmarked plot. Today the parish is telling the truth, giving thanks for her witness, and marking her grave. Today the parish is telling the truth, giving thanks for her witness, and marking her grave.
+
+
+    .widget__footer
+      div
+      .social.social--right
+        .social__list
+          a.social__item(href='#')
+            i.fa.fa-facebook
+          a.social__item(href='#')
+            i.fa.fa-twitter
+          a.social__item(href='#')
+            i.fa.fa-google-plus
+
+  include partials/chunks/comment

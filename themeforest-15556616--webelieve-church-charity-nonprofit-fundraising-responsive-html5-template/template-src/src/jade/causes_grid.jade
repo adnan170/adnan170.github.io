@@ -1,0 +1,19 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'causes_grid';
+  - var pageTitle = 'Our causes';
+  - var sidebarTitle = 'Causes';
+  - var mainClass = 'main--subpage main--causes';
+
+block content
+  +widget(null, 'listing')
+    .cause.cause--grid.js-switch-view(data-view='cause')
+      .listing.listing--grid.listing--lg-6
+        - var chartType = 'grid';
+        each cause, i in locals.data.causes
+          include partials/widgets/cause/cause__item
+
+  +pagination('', true)
+
+

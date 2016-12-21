@@ -1,0 +1,9 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'community_member';
+  - var pageTitle = 'Our community';
+  - var mainClass = 'main--subpage main--community';
+
+block content
+  include ./partials/widgets/member/member--details

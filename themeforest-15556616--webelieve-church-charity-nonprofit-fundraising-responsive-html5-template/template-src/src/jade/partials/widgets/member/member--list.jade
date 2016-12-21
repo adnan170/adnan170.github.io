@@ -1,0 +1,30 @@
+mixin member_item(item)
+  .member__item
+    figure.member__preview
+      img.member__img(src='#{path.media}/members/278x296/' + item.pictures[0], alt='')
+      figcaption.member__caption
+        span.member__name #{item.name}
+        span.member__post #{item.post}
+        a.btn--border-white.member__more(href='community_member.html') More info
+
+
++widget('Meet our Church management team.', 'card details')
+  section.member.member--list
+    .member__intro
+      p Use your talents and skills to help build the kingdom of God. Find peace and joy as you embrace and excel in your work at the Church. Our employees have a unique commitment and devotion to the work.
+    h3 Church members and pastors
+
+    .member__list
+      - var members = locals.data.members;
+      each item, i in members
+        +member_item(item)
+    hr
+    h3 Ministries and Speakers
+    .member__list
+      - var members = locals.data.members;
+      each item, i in members
+        +member_item(item)
+
+    .widget__footer
+      h3 Would you like to engage in our Team or other aspects of the We Believe church?
+      a.btn--flat Let’s do it

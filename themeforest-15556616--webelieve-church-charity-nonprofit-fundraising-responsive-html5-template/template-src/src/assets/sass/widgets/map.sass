@@ -1,0 +1,52 @@
+/*------------------------------------------------------------------
+  * Map / .map
+  * Map event / .map--event
+  * Map contacts / .map--contacts
+  * More info docs_build/ui/map.html
+  ******************************************************************/
++b(map)
+  +e(buttons)
+    display: none
+  +m(event)
+    +e(view)
+      height: 450px
+      @media (max-width: $screen-xs-max)
+        height: 300px
+
+  +m(contacts)
+    margin-left: -30px
+    margin-right: -30px
+    @media (max-width: $screen-xs-max)
+      margin-left: 0
+      margin-right: 0
+      +pdb(1)
+    +e(view)
+      height: 550px
+      @media (max-width: $screen-xs-max)
+        height: 350px
+    +e(caption)
+      +pdb(1)
+      background: $brand-color
+      display: flex
+      flex-wrap: wrap
+      color: #fff
+      margin: -80px 100px 0
+      padding-right: 60px
+      position: relative
+      z-index: 20
+      @media (max-width: $screen-xs-max)
+        margin: 0
+        padding-right: 0
+    +e(caption-column)
+      padding-left: 60px
+      width: 50%
+      @media (max-width: $screen-xs-max)
+        margin-left: 0
+        padding: 0 15px
+        width: 100%
+
+    +e(caption-title)
+      color: #fff
+      +vr-fz(30)
+      @media (max-width: $screen-xs-max)
+        margin-top: 0

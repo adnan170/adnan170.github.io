@@ -1,0 +1,17 @@
+/*------------------------------------------------------------------
+  * Contacts / .contacts
+  ******************************************************************/
++b(contacts)
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+  +e(form)
+    +make-column($md: 7, $sm: 6)
+    @media (max-width: $screen-xs-max)
+      width: 100%
+      padding: 0
+  +e(info)
+    +make-column($md: 4, $sm: 6)
+    @media (max-width: $screen-xs-max)
+      width: 100%
+      padding: 0

@@ -1,0 +1,134 @@
++widget(null, 'card details')
+  .cause.cause--details
+    h2.widget__title= cause.name
+
+    .cause__categories
+      nav.widget__categories #[a Children] / #[a  Earthquake] / #[a Nepal]
+
+    .widget__preview
+      a
+        img.widget__preview-img(src='#{path.media}/causes/cause-details.jpg', alt='')
+
+    .widget__description
+      p The future of poor children in Nepal living along the street is in darkness. Due to a lack of education these children have stolen loot, have addictions, have gone the way of crime. Because alienating get them from all over the place. These children need love and peace.
+      p Under this project, the festival will provide street poor children dinner and gifts given at a good hotel. There will be cutting of cake, face painting, driving electric cars, sharing of gifts, singing and dancing. The kids will have rice, meat, chicken and ice cream in their diet and a soft drink. Dinner and gifts for Street poor children life will become a golden memory.
+      p WeBelieve project ''Provide food & clothes to poor street children in India'' This exposure will enable kids relax, share gifts, share their experiences, and tell stories in a wonderful new environment outside home for one day with the WeBelieve volunteers. Dinner and gifts for Street poor children will become a golden memory. Everything we do for these kids now will never be erased from their memories.
+
+    .cause__donation
+      .cause__counter
+        .cause__circle
+          input.js-dapi-knob(type='text', value=cause.funded, data-bg-color='#f0f0f0', data-thickness='0.03')
+        .cause__value= cause.funded
+          span.cause__value-measure %
+
+      .cause__info
+        ul.cause__info-list
+          li.cause__info-item.cause__info-item--total
+            svg.cause__info-svg.cause__info-svg--heart
+              use(xlink:href='#icon-heart')
+            strong.cause__info-goal $4000
+            |  total goal
+          li.cause__info-item.cause__info-item--remaining
+            svg.cause__info-svg
+              use(xlink:href='#icon-money')
+            strong $2190
+            |  remaining
+          li.cause__info-item.cause__info-item--days
+            svg.cause__info-svg.cause__info-svg--calendar
+              use(xlink:href='#icon-calendar')
+            strong 17 Days left
+            |  to achieve target
+          li.cause__info-item.cause__info-item--donors
+            svg.cause__info-svg
+              use(xlink:href='#icon-man')
+            strong 16 donors
+
+      .clearfix
+      h5.cause__mess Thanks for your interest in supporting the cause!
+      a.btn--flat.cause__donate--big.js-cause-donate-btn(href='#') Donate Now
+
+      .cause__form.js-cause-donate-form.js-parsley
+        h3 Donation information
+        form.form.js-parsley
+          h5 I would like to make a donation in the amount of:
+          .row
+            .form-group.form-group--donate
+              input.in-checkbox(type='checkbox', id='donate-20')
+              label.in-label(for='donate-20') $20
+            .form-group.form-group--donate
+              input.in-checkbox(type='checkbox', id='donate-50')
+              label.in-label(for='donate-50') $50
+            .form-group.form-group--donate
+              input.in-checkbox(type='checkbox', id='donate-100')
+              label.in-label(for='donate-100') $100
+            .form-group.form-group--donate
+              input.in-checkbox(type='checkbox', id='donate-200')
+              label.in-label(for='donate-200') $200
+            .form-group.form-group--donate
+              input.in-checkbox(type='checkbox', id='donate-500')
+              label.in-label(for='donate-500') $500
+            .form-group.form-group--inline
+              label.control-label(for='donate-custom') Or your amount:
+              input.form-control(type='text', id='donate-custom', placeholder='USD')
+
+          .row
+            .form-group.form-group--lg-6.required
+              label.control-label(for='donate-name') First Name
+              input.form-control(type='text', id='donate-name', required)
+
+            .form-group.form-group--lg-6.required
+              label.control-label(for='donate-last') Last Name
+              input.form-control(type='text', id='donate-last', required)
+
+            .form-group.form-group--lg-6.required
+              label.control-label(for='donate-email') Your E-mail
+              input.form-control(type='email', id='donate-email', required)
+
+            .form-group.form-group--lg-6
+              label.control-label(for='donate-phone') Your telephone
+              input.form-control(type='text', id='donate-phone', required)
+
+            .form-group.required.form-group--lg-6
+              label.control-label Telephone
+              input.form-control(type='text')
+            .form-group.form-group--lg-6
+              label.control-label Address and Street number
+              input.form-control(type='text')
+
+            .form-group.required.form-group--lg-6
+              label.control-label Zip Code
+              input.form-control(type='text')
+            .form-group.required.form-group--lg-6
+              label.control-label United States
+              select.form-control
+                option France
+                option USA
+                option Spain
+            .form-group.form-group--lg-6
+              label.control-label City
+              input.form-control(type='text')
+            .form-group.form-group--lg-6
+              label.control-label Please select region, state or province
+              select.form-control
+                option France
+                option USA
+                option Spain
+
+          .row
+            .form-group
+              input.in-checkbox(type='checkbox', id='anonymous')
+              label.in-label(for='anonymous') Please don't publish my name. I would like remain anonymous.
+
+          .cart.cart--account
+            .cart__submit
+              button.btn--flat.cart__btn Donate
+    .widget__footer
+      div
+      .social.social--right
+        .social__list
+          a.social__item(href='#')
+            i.fa.fa-facebook
+          a.social__item(href='#')
+            i.fa.fa-twitter
+          a.social__item(href='#')
+            i.fa.fa-google-plus

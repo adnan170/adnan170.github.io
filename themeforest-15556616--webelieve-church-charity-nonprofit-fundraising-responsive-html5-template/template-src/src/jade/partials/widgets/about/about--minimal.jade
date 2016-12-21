@@ -1,0 +1,12 @@
+// BEGIN ABOUT MINIMAL
+section.about.about--minimal
+  each about, i in locals.data.about
+    if i < 3
+      .about__item(class='about__item--' + i)
+        .about__details(class='about__details--' + i)
+          h3.about__name
+            a(href='about.html') #{about.name}
+          .about__intro
+            p #{about.introShort}
+          a.btn--link.about__more(href='about.html') Read more
+// END ABOUT MINIMAL

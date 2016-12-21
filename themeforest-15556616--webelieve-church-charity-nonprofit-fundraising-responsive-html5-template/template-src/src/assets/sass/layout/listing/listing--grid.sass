@@ -1,0 +1,20 @@
++b(listing)
+  +m(grid)
+    +margin(-1.5)
+    +make-row
+    +e(item)
+      +margin(1.5)
+      +make-block-item($lg: 4, $sm: 6, $xs: 12)
+    @media (max-width: $screen-xs-max)
+      +margin(-1)
+      +e(item)
+        +margin(1)
+  +m(lg-4)
+    +e(item)
+      +make-block-item($lg: 3)
+  +m(lg-6)
+    +e(item)
+      +make-block-item($lg: 6)
+
+.listing .listing__item:first-child
+  clear: none!important

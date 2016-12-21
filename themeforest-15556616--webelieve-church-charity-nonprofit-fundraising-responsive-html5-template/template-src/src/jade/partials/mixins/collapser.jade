@@ -1,0 +1,8 @@
+mixin collapser(title, modifier)
+  .collapser.js-collapser(class= modifier ? 'collapser--' + modifier.replace(/\s/g, ' collapser--') : '')
+    unless title == undefined
+      .collapser__header
+        unless title == undefined || title == ''
+          h4.collapser__title.js-collapser-title!= title
+    .collapser__content
+      block

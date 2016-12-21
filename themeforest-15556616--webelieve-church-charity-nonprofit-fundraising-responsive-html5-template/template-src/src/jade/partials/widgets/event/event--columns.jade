@@ -1,0 +1,22 @@
+// BEGIN EVENT COLUMNS
+section.event.event--columns.js-event(data-modifier='columns')
+  each event, i in locals.data.events
+    if i < 3
+      .event__item.js-event-item
+        .flipper.flipper--event-columns
+          .flipper__container
+            .flipper__front
+              a.event__preview(href='event_details.html')
+                img.event__preview-img(src='#{path.media}/events/390x290/' + event.picture, alt='')
+              .event__details
+                h3.event__name
+                  a(href='event_details.html')= event.name
+                time.event__time(datetime="2016")
+                  | 9.00 am -  2.30 am, 14 - 15 Jan, 2015
+            .flipper__back
+              .event__back
+                .event__form.js-form
+                .event__map.js-map
+        +event__links
+        a.btn--border-brand.event__register(href='event_details.html') Register
+// END EVENT COLUMNS

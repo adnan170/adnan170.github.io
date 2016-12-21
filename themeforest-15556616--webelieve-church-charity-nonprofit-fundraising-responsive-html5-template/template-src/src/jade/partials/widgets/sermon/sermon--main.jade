@@ -1,0 +1,67 @@
+mixin sermon(sermon, i, list)
+  .listing__item
+    if !list
+      .sermon__media
+        #sermon-slider.slider.slider--sermon(style='position: relative; top: 0px; left: 0px; width: 535px; height: 300px;')
+          // Loading Screen
+          div(data-u='loading', style='position: absolute; top: 0px; left: 0px;')
+            div(style='filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block; background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;')
+            div(style='position: absolute; display: block;  top: 0px; left: 0px;width: 100%;height:100%;')
+          // Slides Container
+          div(data-u='slides', style='cursor: move; position: absolute; left: 0px; top: 0px; width: 535px; height: 300px; overflow: hidden;')
+            each sermon, j in locals.data.sermons
+              if  j < 4
+                div.slider__item
+                  figure.sermon__preview
+                    a(href='sermon_details.html')
+                      img(data-u='image', src='#{path.media}/sermons/1794x1010/' + sermon.picture, alt='')
+                  .sermon__video
+                    .plyr
+                      if j == 2
+                        div(data-video-id="bofF_aRIILI", data-type="youtube")
+                      else
+                        video(poster='#{path.media}/sermons/1794x1010/' + sermon.picture, controls="")
+                          source(src=sermon.video + ".mp4" type="video/mp4")
+                          source(src=sermon.video + ".webm" type="video/webm")
+                  .sermon__audio
+                    .plyr
+                      audio( controls crossorigin)
+                        source(src=sermon.audio + ".mp3" type="audio/mp3")
+
+
+
+
+    .sermon__item.js-sermon-item(data-id=i, data-href='sermon_details.html')
+      .sermon__details(class=list ? 'sermon__details--list' : '')
+        table.sermon__links
+          tr
+            td
+              a.sermon__link-item.js-sermon-video
+                svg.sermon__link-svg
+                  use(xlink:href='#icon-video')
+            td
+              a.sermon__link-item.js-sermon-audio
+                svg.sermon__link-svg
+                  use(xlink:href='#icon-audio')
+          tr
+            td
+              a.sermon__link-item(href='http://codefactory47.com/public/webelieve/media/Psalms_023.mp3', target='_blank')
+                svg.sermon__link-svg
+                  use(xlink:href='#icon-speaker')
+            td
+              a.sermon__link-item(href='http://codefactory47.com/public/webelieve/media/notes.pdf', target='_blank')
+                svg.sermon__link-svg
+                  use(xlink:href='#icon-file')
+        .sermon__info
+          time.sermon__time(datetime="2016")= sermon.time
+          h3.sermon__name
+            a(href='sermon_details.html')= sermon.name
+          a.btn--link.sermon__more(href='sermon_details.html') Read more
+// BEGIN SERMON MAIN
+section.sermon.sermon--main.js-sermon(data-modifier='main')
+  .listing.listing--list.listing--sermon
+    +sermon(locals.data.sermons[0], 0, false)
+    each sermon, i in locals.data.sermons
+      if i > 0 && i < 4
+        +sermon(sermon, i, true)
+// END SERMON MAIN

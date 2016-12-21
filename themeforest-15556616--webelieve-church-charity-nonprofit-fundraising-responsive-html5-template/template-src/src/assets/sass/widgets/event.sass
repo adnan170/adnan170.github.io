@@ -1,0 +1,544 @@
+=links-share
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
+  background: rgba(#000, 0.4)
+  padding: 10px 20px
+  transform: translateY(78px)
+  transition: 0.3s
+  +when('item:hover')
+    transform: translateY(0)
+  @media (max-width: $screen-md-max)
+    transform: translateY(0)
+
+=table-td-border
+  position: relative
+  &:after
+    position: absolute
+    bottom: 0
+    left: 5px
+    right: 5px
+    content: ' '
+    display: block
+    border-top: 1px solid #fff
+/*------------------------------------------------------------------
+  * Event / .event
+  * .event--main
+  * .event--columns
+  * .event--split
+  * .event--list
+  * .event--sidebar
+  * .event--details
+  * .event--main
+  ******************************************************************/
++b(event)
+  +e(details)
+    +clearfix
+
+  +e(link-item)
+    +circle(30px)
+    padding: 5px
+    fill: $default-color
+    display: inline-block
+    position: relative
+    &.active,
+    &:hover
+      text-decoration: none
+      background: $brand-color
+      fill: #fff
+    +on(hover)
+      .social__item:nth-child(1)
+        transform: translate(-30px, 0px) scale(1)
+        opacity: 1
+      .social__item:nth-child(2)
+        transform: translate(15px, -25px) scale(1)
+        opacity: 1
+      .social__item:nth-child(3)
+        transform: translate(-15px, -25px) scale(1)
+        opacity: 1
+      .social__item:nth-child(4)
+        transform: translate(30px, 0) scale(1)
+        opacity: 1
+  +e(time)
+    display: block
+    font-style: italic
+    +vr-fz(15, $margin: sticky)
+
+  +e(link-svg)
+    width: 100%
+    height: 100%
+  +e(time-svg)
+    fill: $default-color
+    width: 15px
+    height: 20px
+    position: relative
+    top: 5px
+    margin-right: 10px
+
+  +e(register)
+    padding-right: 20px
+    padding-left: 20px
+  +e(preview)
+    position: relative
+  +e(preview-img)
+    width: 100%
+  +e(status)
+    position: absolute
+    top: 0
+    right: 0
+    background: rgba($brand-color, 0.8)
+    text-transform: uppercase
+    +vr-fz(15, $margin: sticky)
+    color: #fff
+    font-weight: 900
+    padding: 2px 15px
+
+  +e(map)
+    display: none
+  +e(form)
+    display: none
+  +m(main)
+    +e(item)
+      @media (max-width: $screen-xs-max)
+        text-align: center
+    +e(preview)
+      +make-column($lg: 3, $sm: 4, $sticky: true)
+      display: block
+    +e(details)
+      +make-column($lg: 5, $sm: 6)
+      @media (max-width: $screen-xs-max)
+        +pd-lr(normal)
+    +e(name)
+      +margin(0.5)
+
+    +e(actions)
+      +make-column($sm: 2, $sticky: true)
+      +make-lg-column-offset(2)
+      +pd(1)
+      @media (max-width: $screen-xs-max)
+        float: none
+
+    +e(links)
+    +e(link-item)
+      margin-right: 10px
+      @media (max-width: $screen-xs-max)
+        margin: 0 10px
+    +e(register)
+      +margin(1)
+      +rtl
+        margin-right: 15px
+
+    +e(map)
+      height: 400px
+  +m(columns)
+    @media (max-width: $screen-xs-max)
+      +margin(-1)
+      text-align: center
+    +e(item)
+      +make-column($sm: 4, $sticky: true)
+      text-align: center
+      &:first-of-type .event__details:before
+        border-right: none
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+    +e(preview)
+
+    +e(details)
+      +border-separator
+      +margin(1)
+      padding: 0 40px
+      min-height: 125px
+      @media (max-width: $screen-md-max)
+        padding: 0 15px
+        min-height: initial
+      @media (max-width: $screen-xs-max)
+        padding: 0
+        &:before
+          border-right: none
+    +e(name)
+      margin-top: 0
+      +hide-overflow(3)
+
+    +e(time)
+      +margin(0.5)
+    +e(links)
+      position: relative
+      z-index: 10
+      +margin(1)
+    +e(link-item)
+      margin: 0 10px
+    +e(register)
+      +margin(1)
+      position: relative
+      z-index: 10
+
+    +e(back)
+      position: relative
+      height: 100%
+    +e(map)
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      opacity: 0
+      transition: 0.4s
+      +when('item--map')
+        opacity: 1
+
+    +e(form)
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      opacity: 0
+      overflow: auto
+      transition: 0.5s
+      +when('item--form')
+        opacity: 1
+
+  +m(split)
+    +make-row
+    @media (max-width: $screen-xs-max)
+      margin: 0
+      +margin(-1)
+    +e(item)
+      +make-column($sm: 4)
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+
+    +e(preview)
+      @media (max-width: $screen-xs-max)
+        max-height: 240px
+        display: block
+
+    +e(details)
+      +margin(0.5)
+      padding: 0 20px
+      @media (max-width: $screen-xs-max)
+        padding: 0
+        min-height: initial
+    +e(name)
+      +margin(0.5)
+
+    +e(time)
+      +margin(0.5)
+    +e(links)
+      @media (max-width: $screen-md-max)
+        width: 100%
+        text-align: center
+
+    +e(link-item)
+      margin: 0 5px
+    +e(actions)
+      +margin(1)
+      padding: 0 20px
+      display: flex
+      justify-content: space-between
+      @media (max-width: $screen-md-max)
+        flex-wrap: wrap
+        justify-content: center
+
+    +e(register)
+      @media (max-width: $screen-md-max)
+        +margin(1)
+        order: 1
+
+    +e(back)
+      position: relative
+      height: 100%
+    +e(map)
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      opacity: 0
+      overflow: hidden
+      transition: 0.4s
+      +when('item--map')
+        opacity: 1
+
+    +e(form)
+      position: absolute
+      top: 0
+      right: 0
+      left: 0
+      bottom: 0
+      opacity: 0
+      overflow: auto
+      transition: 0.5s
+      +when('item--form')
+        opacity: 1
+  +m(list)
+    +e(preview)
+      +make-column($sm: 5, $sticky: true)
+      display: block
+      overflow: hidden
+      +when(sidebar-hide, true)
+        +make-column($sm: 4, $sticky: true)
+
+
+    +e(details)
+      +make-column($sm: 7)
+      +pd-lr(big)
+      +pdb(1)
+      +when(sidebar-hide, true)
+        +make-column($sm: 8)
+        padding-left: 30px
+        padding-right: 30px
+
+    +e(name)
+      +margin(0.5)
+    +e(organaizer)
+      font-weight: 400
+      +margin(0.5)
+      display: block
+    +e(info)
+      +outline
+      +margin(1)
+      display: inline-block
+    +e(info-svg)
+      fill: $default-color
+      width: 15px
+      height: 20px
+      position: relative
+      top: 5px
+      margin-right: 10px
+      +rtl
+        margin-right: 0
+        margin-left: 10px
+    +e(links)
+      +links-share
+    +e(link-item)
+      margin-right: 20px
+      fill: #fff
+    +e(location)
+      margin-top: 0
+      font-style: italic
+
+    +e(price)
+      float: right
+      +margin(1)
+      +outline
+
+    +e(more)
+      +margin(1)
+      +lh-fix()
+      +rtl
+        margin-right: 100px
+        @media (max-width: $screen-xs-max)
+          margin-right: 15px
+    +e(map)
+      height: 400px
+  +m(grid)
+    +e(item)
+      background: #fff
+      +pdb(1)
+    +e(preview)
+      display: block
+      overflow: hidden
+    +e(preview-link)
+      max-height: 220px
+      display: block
+      overflow: hidden
+    +e(preview-img)
+    +e(details)
+      padding: 0 15px
+    +e(name)
+      +margin(0.5)
+      +hide-overflow(3, true)
+    +e(organaizer)
+      font-weight: 400
+      +margin(0.5)
+    +e(info)
+      +outline
+      +margin(0.5)
+
+    +e(info-svg)
+      fill: $default-color
+      width: 15px
+      height: 20px
+      position: relative
+      top: 5px
+      margin-right: 10px
+      +rtl
+        margin-right: 0
+        margin-left: 10px
+    +e(links)
+      +links-share
+    +e(link-item)
+      margin-right: 20px
+      fill: #fff
+    +e(time)
+      +text-overflow
+    +e(location)
+      margin-top: 0
+      font-style: italic
+      +text-overflow
+
+    +e(actions)
+      padding: 0 15px
+      +margin(1)
+    +e(price)
+      float: right
+      +outline
+    +e(back)
+      position: relative
+      height: 100%
+
+    +e(map)
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      opacity: 0
+      overflow: hidden
+      transition: 0.4s
+      +when('item--map')
+        opacity: 1
+
+    +e(form)
+      +pd(1)
+      padding-bottom: 0
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      opacity: 0
+      transition: 0.5s
+      background: #fff
+      overflow: auto
+      +when('item--form')
+        opacity: 1
+    +e(more)
+      +rtl
+        margin-right: 15px
+  +m(sidebar)
+    +e(item)
+    +e(preview)
+      +margin(1)
+      @media (max-width: $screen-sm-max)
+        width: 40%
+      @media (max-width: $screen-xs-min)
+        width: 100%
+
+    +e(preview-img)
+    +e(name)
+      +margin(0.5)
+    +e(info)
+      +margin(0.2)
+    +e(intro)
+      +margin(0.2)
+      p
+        margin-bottom: 0
+    +e(link-item)
+      margin-right: 20px
+    +e(link-svg)
+      fill: #fff
+    +e(location)
+      margin-top: 0
+      font-style: italic
+
+  +m(details)
+    +pdb(1.5)
+    +e(organaizer)
+      +margin(0.5)
+    +e(price)
+      +outline
+      +lh-fix(15)
+      font-weight: 900
+      text-align: center
+      margin-top: 0
+      @media (max-width: $screen-xs-max)
+        top: 0
+    +e(book)
+      +margin(1)
+      @media (max-width: $screen-xs-max)
+        margin-top: 0
+    +e(info)
+      color: #fff
+      flex: 1
+      font-weight: 600
+      +margin(0.5)
+      a
+        color: #fff
+      svg
+        fill: #fff
+
+    +e(info-svg)
+      fill: #fff
+      width: 15px
+      height: 20px
+      position: relative
+      top: 5px
+      margin-right: 10px
+      +rtl
+        margin-right: 0
+        margin-left: 10px
+    +e(link-svg)
+      fill: #fff
+    +e(location)
+      margin-top: 0
+    +e(detail-phones)
+      margin-top: 0
+    +e(social)
+      +margin(0.5)
+      text-align: center
+    +e(detail-mail)
+      margin-left: 50px
+      @media (max-width: $screen-md-max)
+        margin-left: 0
+        display: block
+    +e(time)
+      +vr-fz(17, sticky)
+      font-style: normal
+      margin-bottom: 0
+      
+    +e(schedule)
+      +margin(1)
+    +e(schedule-table)
+      width: 100%
+      td
+        border-color: #fff
+      tr:last-child
+        td:after
+          border-top: none
+    +e(schedule-time)
+      background: #ececec
+      padding: 5px 35px 0
+      border-right: 1px solid #fff
+      +table-td-border
+      @media (max-width: $screen-xs-max)
+        padding: 5px
+    +e(schedule-description)
+      background: $gray-bg-color
+      padding: 5px 35px
+      +table-td-border
+      @media (max-width: $screen-xs-max)
+        padding: 5px
+    +e(form)
+      +margin(1)
+    +e(mess)
+      +margin(1.5)
+      text-align: center
+
+    +e(register)
+      +margin(1)
+      padding: 10px 40px
+      font-size: 20px
+      width: 250px
+      margin-left: auto
+      margin-right: auto
+      display: block
+      &:active
+        padding-top: 14px
+        padding-bottom: 6px
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+        font-size: 17px
+        width: 170px

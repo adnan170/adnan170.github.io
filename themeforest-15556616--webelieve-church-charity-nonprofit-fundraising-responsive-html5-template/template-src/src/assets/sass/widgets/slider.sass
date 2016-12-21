@@ -1,0 +1,628 @@
+/*------------------------------------------------------------------
+  * Slider / .slider
+  * .slider--wide
+  * .slider--v1
+  * .slider--v3
+  * .slider--v4
+  * .slider--v5
+  * .slider--v6
+  * .slider--nav
+  * More info docs_build/ui/slider.html
+  ******************************************************************/
++b(slider)
+  +e(item)
+    display: none
+  +e(wrapper)
+    @media (min-width: $screen-sm-min)
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      .container
+        position: relative
+  +e(sidebar)
+    @media (min-width: $screen-sm-min)
+      position: absolute
+      right: 0
+      width: 30%
+      top: 140px
+  +e(sidebar-title)
+    +fz(30)
+    @media (min-width: $screen-sm-min)
+      color: #fff
+  +m(wide)
+    width: 100%
+    position: relative
+    overflow: hidden
+    +e(item)
+      height: 660px
+      @media (max-width: $screen-xs-max)
+        height: 400px
+      +is(slick-slide)
+        position: relative
+        overflow: hidden
+        display: flex
+
+    +e(caption)
+      +invisy
+      +container
+      align-self: center
+      z-index: 15
+      margin: 0 auto
+      @media (max-width: $screen-md-max)
+        margin: 0 170px
+        padding: 30px 0
+
+      @media (max-width: $screen-xs-max)
+        margin: 0 70px
+        text-align: center
+      +m(v4)
+        text-align: center
+      +m(v6)
+        text-align: center
+    .slick-active .slider__caption
+      +visy
+    +e(preview)
+      width: 100%
+      position: absolute
+      transition: 1.5s
+      bottom: 0
+      top: 0
+    +e(preview-img)
+      height: 100%
+      width: auto
+      position: absolute
+      left: -100%
+      right: -100%
+      top: -100%
+      bottom: -100%
+      margin: auto
+      max-width: none
+      @media (max-width: $screen-md-max)
+        left: -130%
+    +e(preview-video)
+      @media (max-width: $screen-md-max)
+        height: 100%
+
+    +when(normal-browser, true)
+      .slider__preview--v2
+        transform: translateX(300px)
+        opacity: 0.5
+      .slider__item.slick-active .slider__preview--v2
+        transform: translateX(0px)
+        opacity: 1
+      .slider__preview--v3
+        opacity: 0.5
+      .slider__item.slick-active .slider__preview--v3
+        transform: scale(1.3)
+        opacity: 1
+      .slider__preview--v4
+        opacity: 0.5
+        transform: scale(1.5)
+      .slider__item.slick-active .slider__preview--v4
+        opacity: 1
+        transform: scale(1)
+    +e(preview-img)
+
+    +e(heading)
+      transition: transform 1s, opacity 1s
+      transition-delay: 2s
+      transform: translateX(-100px)
+      opacity: 0
+      +m(v1)
+        background: #fff
+        color: $brand-color
+        text-transform: uppercase
+        display: inline-block
+        padding: 5px 10px
+        font-weight: 900
+      +m(v3)
+        font-style: italic
+        color: $title-color
+      +m(v4)
+        font-family: $font-family-title
+        +vr-fz(22)
+        color: #fff
+        border: 2px solid #fff
+        display: inline-block
+        padding: 5px 10px
+      +m(v5)
+        text-transform: uppercase
+        color: $title-color
+        font-weight: 600
+        &:after
+          content: ' '
+          display: block
+          border-top: 3px solid $title-color
+          width: 55px
+          margin-top: 40px
+        @media (max-width: $screen-md-max)
+          text-align: center
+          &:after
+            margin: 20px auto 0
+      +m(v6)
+        +fz(20)
+        color: #fff
+        display: inline-block
+        padding: 5px 10px
+        text-transform: uppercase
+        font-weight: 900
+        &:after
+          content: ' '
+          display: block
+          border-top: 3px solid #fff
+          width: 50px
+          margin: 20px auto 0
+    .slick-active .slider__heading
+      transform: translateX(0px)
+      opacity: 1
+
+    +e(title)
+      transition: 1s
+      transition-delay: 0.3s
+      transform: translateY(-20px)
+      opacity: 0
+      +m(v1)
+        color: #fff
+        margin-top: 40px
+        line-height: 1
+        +fz(88)
+        font-weight: 200
+        text-transform: uppercase
+      +m(v2)
+        color: $title-color
+        margin-top: 0
+        line-height: 1
+        +fz(84)
+        font-weight: 600
+        width: 50%
+        @media (max-width: $screen-md-max)
+          text-shadow: 1px 1px 45px rgba(0, 0, 0, 0.3)
+          color: #fff
+      +m(v3)
+        color: $title-color
+        font-weight: 200
+        width: 50%
+        margin-top: 0
+      +m(v4)
+        +fz(130)
+        color: $brand-color
+        font-family: $font-family-title
+        line-height: 1
+        margin-top: 0.4em
+
+      +m(v5)
+        color: $title-color
+        line-height: 1
+        +fz(78)
+        text-transform: uppercase
+        width: 55%
+        font-weight: 900
+
+      +m(v6)
+        color: #fff
+        line-height: 1
+        +fz(60)
+        text-transform: uppercase
+        border: 10px solid #fff
+        font-weight: 900
+        padding: 30px
+        @media (max-width: $screen-xs-max)
+          font-size: 1.16471em!important
+
+      @media (max-width: $screen-md-max)
+        margin-top: 30px
+        +fz(30)
+        width: auto
+    .slick-active .slider__title
+      transform: translateY(0px)
+      opacity: 1
+
+    +e(subtitle)
+      transition: 1s
+      transition-delay: 1.5s
+      transform: translateY(-20px)
+      opacity: 0
+      margin-top: 40px
+
+      +m(v1)
+        font-weight: 900
+        line-height: 1
+        margin-top: 0
+        color: #fff
+        +fz(88)
+        text-transform: uppercase
+        width: 60%
+        @media (max-width: $screen-md-max)
+          +fz(25)
+      +m(v2)
+        +fz(20)
+        width: 40%
+        font-weight: 400
+        @media (max-width: $screen-md-max)
+          text-shadow: 1px 1px 40px rgba(0, 0, 0, 0.9)
+          color: #fff
+
+      +m(v3)
+        +fz
+        color: $title-color
+        width: 50%
+        font-weight: 400
+        margin-top: 0
+      +m(v4)
+        font-style: italic
+        color: #fff
+        font-weight: 400
+        width: 70%
+        display: inline-block
+        margin-top: 0.5em
+        @media (max-width: $screen-xs-max)
+          display: none
+      +m(v5)
+        color: $title-color
+        width: 50%
+        font-weight: 400
+        +fz
+        @media (max-width: $screen-xs-max)
+          display: none
+      +m(v6)
+        color: #fff
+        font-weight: 200
+        +fz(20)
+        width: 50%
+        display: inline-block
+        @media (max-width: $screen-xs-max)
+          display: none
+
+      @media (max-width: $screen-md-max)
+        margin-top: 10px
+        width: auto
+
+
+    .slick-active .slider__subtitle
+      transform: translateY(0px)
+      opacity: 1
+
+    +e(footer)
+      transition: transform 1s, opacity 1s
+      transition-delay: 2s
+      transform: translateX(200px)
+      opacity: 0
+      margin-top: 60px
+      @media (max-width: $screen-xs-max)
+        margin-top: 30px
+
+    +e(more)
+    +e(donate)
+      padding: 10px 20px
+      margin-right: 30px
+      font-size: 24px
+      +fz(24)
+      text-transform: none
+      border-radius: 30px
+      @media (max-width: $screen-md-max)
+        +fz
+      @media (max-width: $screen-xs-max)
+        margin-right: 0
+    +e(sep)
+      @media (max-width: $screen-xs-max)
+        display: block
+    +e(read)
+      text-transform: none
+      border-radius: 20px
+      @media (max-width: $screen-xs-max)
+        margin-top: 10px
+
+    .slick-active .slider__footer
+      transform: translateX(0px)
+      opacity: 1
+
+    +e(links)
+      padding: 10px
+      margin: 0 auto
+      text-transform: none
+      border-radius: 30px
+      background: $brand-color
+      display: inline-block
+
+    +e(link-item)
+      line-height: 1
+      display: inline-block
+      margin: 0 10px
+    +e(link-svg)
+      fill: #fff
+      width: 30px
+      height: 30px
+      @media (max-width: $screen-xs-max)
+        width: 20px
+        height: 20px
+
+    +e(watch)
+      +fz(15)
+      margin-left: 60px
+      vertical-align: middle
+      text-transform: uppercase
+      color: $title-color
+      display: inline-block
+      +font-awesome-icon($fa-var-caret-right, $size: 2em)
+      &:before
+        color: #fff
+        background: $brand-color
+        border-radius: 50px
+        margin-right: 20px
+        width: 50px
+        height: 50px
+        text-align: center
+        line-height: 50px
+      @media (max-width: $screen-xs-max)
+        margin-left: 0
+        margin-top: 10px
+        width: 100%
+        &:before
+          width: 30px
+          height: 30px
+          line-height: 30px
+          font-size: 1em
+    +e(controls)
+
+    +e(control)
+      +circle(80px)
+      background: rgba(#454545, 0.7)
+      position: absolute
+      top: 50%
+      margin-top: -40px
+      color: #fff
+      border: none
+      display: block
+      outline: none
+      +m(prev)
+        left: 50px
+        +ti-icon($ti-icon-angle-left, $size: 2.8em)
+        @media (max-width: $screen-xs-max)
+          left: 15px
+      +m(next)
+        right: 50px
+        z-index: 15
+        +ti-icon($ti-icon-angle-right, $size: 2.8em)
+        @media (max-width: $screen-xs-max)
+          right: 15px
+      @media (max-width: $screen-xs-max)
+        width: 40px
+        height: 40px
+        margin-top: -15px
+        line-height: 30px
+        &:before
+          font-size: 1em
+
+  +m(v3)
+    +e(item)
+      height: 740px
+      @media (max-width: $screen-xs-max)
+        height: 400px
+
+    +e(controls)
+      position: absolute
+      top: 50%
+      margin-top: -80px
+      right: 0
+      @media (max-width: $screen-xs-max)
+        margin-top: -40px
+    +e(control)
+      background: $panel-bg-color
+      position: absolute
+      color: #fff
+      border: none
+      display: block
+      outline: none
+      border-radius: 0
+      width: 70px
+      height: 70px
+      line-height: 60px
+      @media (max-width: $screen-xs-max)
+        width: 40px
+        height: 45px
+        line-height: 30px
+        &:before
+          font-size: 1em
+      +m(prev)
+        right: 0
+        top: 70px
+        left: auto
+        margin-top: 0
+        &:before
+          font-size: 25px
+        @media (max-width: $screen-xs-max)
+          top: 40px
+
+      +m(next)
+        margin-top: 0
+        top: 0
+        right: 0
+        z-index: 25
+        &:before
+          font-size: 25px
+        &:after
+          border-top: 1px solid $default-color-dark
+          display: block
+          content: ' '
+          width: 20px
+          margin-left: 20px
+          @media (max-width: $screen-xs-max)
+            margin-left: 5px
+
+  +m(v4)
+    +e(item)
+      height: 1010px
+      @media (max-width: $screen-md-max)
+        height: 650px
+      @media (max-width: $screen-xs-max)
+        height: 450px
+    +e(caption)
+      @media (max-width: $screen-md-max)
+        margin: 0 50px
+      @media (max-width: $screen-xs-max)
+        margin: 0 30px
+
+
+    .slick-dots
+      bottom: 40px
+      margin-bottom: 0
+      @media (max-width: $screen-xs-max)
+        bottom: 15px
+      li
+        margin: 0 10px
+        button
+          color: #fff
+          +font-awesome-icon($fa-var-circle-o, $size: 12px)
+          &:before
+            opacity: 1
+      li.slick-active button
+        +font-awesome-icon($fa-var-circle, $size: 16px)
+  +m(v5)
+    +e(item)
+      height: 940px
+      @media (max-width: $screen-md-max)
+        height: 650px
+      @media (max-width: $screen-xs-max)
+        height: 400px
+
+    +e(caption)
+      @media (max-width: $screen-md-max)
+        margin: 0 50px
+      @media (max-width: $screen-xs-max)
+        margin: 0 30px
+
+    +e(controls)
+      position: absolute
+      bottom: 0
+      right: 0
+    +e(control)
+      background: $gray-bg-color
+      position: absolute
+      color: $title-color
+      border: none
+      display: block
+      outline: none
+      border-radius: 0
+      width: 100px
+      height: 100px
+      line-height: 100px
+      @media (max-width: $screen-sm-max)
+        width: 50px
+        height: 50px
+        line-height: 50px
+      +m(prev)
+        right: 102px
+        bottom: 0
+        top: auto
+        left: auto
+        margin-top: 0
+        &:before
+          font-size: 25px
+        @media (max-width: $screen-sm-max)
+          right: 52px
+          &:before
+            font-size: 20px
+
+      +m(next)
+        margin-top: 0
+        top: auto
+        right: 0
+        bottom: 0
+        left: auto
+        z-index: 25
+        &:before
+          font-size: 25px
+        @media (max-width: $screen-xs-max)
+          &:before
+            font-size: 20px
+  +m(v6)
+    +e(item)
+      height: 860px
+      @media (max-width: $screen-md-max)
+        height: 650px
+      @media (max-width: $screen-xs-max)
+        height: 500px
+    +e(caption)
+      margin-top: 150px
+      @media (max-width: $screen-xs-max)
+        margin-top: 70px
+    +e(heading)
+      +m(v3)
+        @media (max-width: $screen-xs-max)
+          display: none
+    +e(title)
+      +m(v3)
+        @media (max-width: $screen-xs-max)
+          margin-top: 0
+    +e(controls)
+    +e(control)
+      background: none
+
+  +m(v7)
+    +e(item)
+      @media (max-width: $screen-xs-max)
+        height: 320px
+    +e(icon)
+      position: absolute
+      top: 50%
+      left: 50%
+      margin: -30px 0 0 -30px
+      color: #fff
+      +fz(60)
+      opacity: 0
+      transition: 0.3s
+      +when('item:hover')
+        opacity: 1
+    .slick-dots
+      bottom: 40px
+      margin-bottom: 0
+      li
+        margin: 0 10px
+        button
+          color: #fff
+          +font-awesome-icon($fa-var-circle-o, $size: 12px)
+          &:before
+            opacity: 1
+      li.slick-active button
+        +font-awesome-icon($fa-var-circle, $size: 16px)
+
+
+  +m(nav)
+    position: absolute
+    right: 130px
+    z-index: 15
+    width: 240px
+    margin-top: -370px
+    opacity: 0
+    transition: 0.3s
+
+    transform: translateX(100px) scale(0.5)
+    &:hover
+      opacity: 1
+      transform: translateX(0px) scale(1)
+    @media (max-width: $screen-xs-max)
+      display: none
+    +when(boxed, true)
+      right: auto
+      margin-left: 270px
+      left: 50%
+    +e(item)
+      width: 80px
+      opacity: 0.5
+      transition: 0.2s
+      &.slick-current
+        opacity: 1
+      +on(hover)
+        opacity: 1
+        cursor: pointer
+      img
+        border-radius: 40px
+        overflow: hidden
+  +m(hover)
+    opacity: 1
+    transform: translateX(0px)
+  +m(sermon)
+    +e(item)
+      position: relative
+      display: block

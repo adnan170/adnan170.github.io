@@ -1,0 +1,28 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = 'sidebar-hide';
+  - var page = 'error_404';
+  - var pageTitle = '404 Page';
+  - var mainClass = 'main--subpage main--errors';
+
+block content
+  +widget(null, 'card')
+    .errors-page
+      h3.errors-page__title Page not found
+      .errors-page__wrap
+        .errors-page__type 4#[span 0]4
+        .errors-page__label Error
+      .errors-page__description The page you were looking for appears to have been moved, #[br] deleted or does not exist.
+      nav.errors-page__nav
+        a Homepage
+        a About Us
+        a Contact Us
+      .errors-page__social
+        .social.social--center
+          .social__list
+            a.social__item(href='#')
+              i.fa.fa-facebook
+            a.social__item(href='#')
+              i.fa.fa-twitter
+            a.social__item(href='#')
+              i.fa.fa-google-plus

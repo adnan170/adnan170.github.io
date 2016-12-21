@@ -1,0 +1,17 @@
+// BEGIN POST MAIN
+section.post.post--main
+  .post__list
+    each post, i in locals.data.posts
+      if i < 3
+        .post__item(class='post__item--' + i)
+          .post__details(class='post__details--' + i)
+            time.post__time(datetime="2016") #{post.time}
+            h3.post__name
+              a(href='blog_details.html') #{post.name}
+            .post__intro
+              p #{post.intro}
+            a.btn--link.post__more(href='blog_details.html') Read more
+          a.post__preview(class='post__preview--' + i, href='blog_details.html')
+            figure.post__figure(class='post__figure--' + i)
+              img(src='#{path.media}/post/' + post.picture, alt='')
+// END POST MAIN

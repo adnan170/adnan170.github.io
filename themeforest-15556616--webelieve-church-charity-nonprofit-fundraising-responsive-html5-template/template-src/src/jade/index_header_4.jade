@@ -1,0 +1,16 @@
+extends index_base
+block config
+  - var bodyClass = 'scroll-animation';
+  - var page = 'index_header_4';
+
+block header
+  include partials/layout/headers/header--v4
+  +nav('v3 nav--v4')
+
+block slider
+  +widget(null, 'slider')
+    - var slides = locals.data.slider.slice(0);
+    - var slide = slides[3];
+    - slides.splice(3, 1);
+    - slides.splice(0, 0, slide);
+    +slider(4, {'data-arrows': 'false', 'data-asNavFor': 'false', 'data-dots': 'true', 'data-fade': 'true', 'data-speed': '2000', 'data-autoplay': 'true', 'data-autoplaySpeed': '4000'}, slides)

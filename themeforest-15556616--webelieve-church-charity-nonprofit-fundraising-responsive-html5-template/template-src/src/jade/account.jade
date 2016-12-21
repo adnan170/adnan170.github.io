@@ -1,0 +1,21 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = 'sidebar-hide';
+  - var page = 'account';
+  - var pageTitle = 'Account';
+  - var mainClass = 'main--subpage main--shop';
+
+block content
+  form.form.form--account.js-parsley(action='#')
+    include partials/widgets/cart/account
+    include partials/widgets/cart/address
+    +widget(null, 'card account')
+      .cart.cart--account
+        h5 You have 5 orders
+        include partials/widgets/cart/cart--order
+
+    include partials/widgets/cart/coupon
+    +widget(null, 'card account')
+      .cart.cart--account
+        .cart__submit
+          button.btn--flat.cart__btn Save all information

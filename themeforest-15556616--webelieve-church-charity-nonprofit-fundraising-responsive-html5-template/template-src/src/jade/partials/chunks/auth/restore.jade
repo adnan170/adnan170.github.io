@@ -1,0 +1,26 @@
+// BEGIN AUTH RESTORE
+form.form.form--auth.form--restore.js-parsley(action='#')
+  h5.form__title Reset password
+  .row
+    .form-group
+      label.control-label(for='restore-email-' + formType) Enter your User Name or Email
+      input.form-control(type='email', name='email', id='restore-email-' + formType, required)
+
+  .row
+    button.btn--flat.form__submit(type='submit') Reset password
+
+  .row
+    span.form__links
+      if formType == 'inline'
+        | Back to
+        a(href='user_login.html') Log In
+        | or
+        a(href='user_register.html') Registration
+      else
+        | Back to
+        button(type='button').js-auth-login Log In
+        | or
+        button(type='button').js-auth-register Registration
+    // end of block .form__links
+// end of block .form-restore
+// END FORM RESTORE

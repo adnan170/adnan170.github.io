@@ -1,0 +1,19 @@
+- var event = locals.data.events[1];
+.event.event--sidebar
+  .event__item
+    .event__preview
+      span.event__status= event.status
+      a(href='event_details.html').event__preview-link
+        img.event__preview-img(src='#{path.media}/events/390x290/' + event.picture, alt='')
+
+    .event__details
+      h4.event__name
+        a(href='event_details.html')= event.name
+      .event__info
+        time.event__time(datetime="2016")
+          | 25 March, 2015 at 2 pm
+        address.event__location
+          | State Route, San Francisco, USA
+
+      .event__intro
+        p Every mountain top is within reach if you just keep climbing. We affirm the power of individuals...

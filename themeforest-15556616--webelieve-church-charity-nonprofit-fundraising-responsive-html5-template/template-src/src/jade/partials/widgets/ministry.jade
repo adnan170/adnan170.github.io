@@ -1,0 +1,18 @@
+// BEGIN MINISTRY GALLERY
+section.ministry.ministry--gallery
+  .ministry__column.ministry__column--left
+    h2.widget__title Our ministry
+    .ministry__intro
+      p It is a place where people who come from the States are loved, appreciated, and given really fantastic opportunities to touch lives and make a difference. From these summary texts and the broad scope of Scripture, it is evident that Christian ministry has as its priority the worship of God, followed by service for God in the proclamation of the gospel  and the edification of the saints.
+  .ministry__column.ministry__column--right
+    .ministry__gallery
+      - var ministries = [{picture: '1.png', title: 'Teens Ministry'}, {picture: '2.png', title: 'Seniors Ministry'}, {picture: '3.png', title: 'Bible study'}, {picture: '4.png', title: 'Kids Ministry'}, {picture: '5.png', title: 'Outreach Ministry'}]
+      each ministry in ministries
+        a.ministry__gallery-item(href='community.html')
+          figure
+            img.ministry__gallery-img(src='#{path.media}/ministries/' + ministry.picture, alt='')
+            figcaption.ministry__gallery-caption= ministry.title
+// END MINISTRY GALLERY
+
+
+

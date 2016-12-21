@@ -1,0 +1,10 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'shop';
+  - var pageTitle = 'Shop';
+  - var sidebarTitle = 'Shop';
+  - var mainClass = 'main--subpage main--shop';
+
+block content
+  include partials/widgets/products/products--grid

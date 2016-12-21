@@ -1,0 +1,16 @@
+{
+  "name": "realtyspace",
+  "authors": [
+    "contact@codefactory47.com"
+  ],
+  "license": "MIT",
+  "homepage": "codefactory47.com",
+  "dependencies": {
+    "geoffgraham.animate.scss": "3.2.1",
+    "holderjs": "~2.7.1",
+    "pnotify": "~2.0.1",
+    "themify-icons": "~0.1.0",
+    "jquery.countdown": "~2.1.0"
+  },
+  "private": true
+}

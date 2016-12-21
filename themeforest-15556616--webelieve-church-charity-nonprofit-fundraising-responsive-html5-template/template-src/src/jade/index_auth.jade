@@ -1,0 +1,50 @@
+extends index_base
+block config
+  - var bodyClass = 'scroll-animation';
+  - var page = 'index_auth';
+
+block header
+  include partials/layout/headers/header--v4
+  +nav('v3 nav--v4')
+
+block slider
+  +widget
+    - var slides = locals.data.slider.slice(0);
+    - var slide = slides[2];
+    - slides.splice(3, 2);
+    +sliderNoCaption(4, {'data-arrows': 'false', 'data-asNavFor': 'false', 'data-dots': 'true'}, slides, 'auth')
+    .slider__wrapper
+      .container
+        .slider__sidebar
+          h3.slider__sidebar-title Sign Up For Free.
+          form.form.form--slider.js-parsley
+            .row
+              .form-group
+                label.control-label(for='register-name') First name
+                input.form-control(type='text', id='register-name', required)
+              .form-group
+                label.control-label(for='register-lastname') Last name
+                input.form-control(type='text', id='register-lastname', required)
+              .form-group
+                label.control-label(for='register-phone') Telephone
+                input.form-control(type='text', id='register-phone')
+              .form-group
+                label.control-label(for='register-email') E-mail
+                input.form-control(type='email', name='email', id='register-email', required)
+              .form-group
+                label.control-label(for='register-password') Password
+                input.form-control(type='password', name='password', id='register-password', required)
+
+            .form__buttons
+              button.btn--flat.form__submit(type='submit') Sign Up
+
+          // end of block
+          .social.social--join.social--white
+            | Join with:
+            a.social__item
+              .fa.fa-facebook
+            a.social__item
+              .fa.fa-twitter
+            a.social__item
+              .fa.fa-google-plus
+        // end of block .banner__form

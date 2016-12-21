@@ -1,0 +1,284 @@
+/*------------------------------------------------------------------
+  * Post / .post
+  * .post--main
+  * .post--standart
+  * .post--preview
+  * .post--recent
+  * .post--list
+  * .post--grid
+  * .post--masonry
+  * .post--details
+  ******************************************************************/
+=arrow
+  width: 40px
+  height: 40px
+  background: #fff
+  position: absolute
+  display: block
+  transform: rotate(50grad)
+  content: ' '
+  transition: 0.3s
++b(post)
+  +e(item)
+    +when('scroll-animation .widget:not(.widget--sidebar)', true)
+      visibility: hidden
+  +e(details)
+  +e(img)
+    width: 100%
+  +m(main)
+    +e(list)
+      position: relative
+      height: 520px
+      @media (max-width: $screen-sm-max)
+        height: auto
+        +margin(-1)
+    +e(item)
+      +clearfix
+      @media (min-width: $screen-md-min)
+        position: absolute
+        +m(0)
+          top: 0
+          left: 0
+          right: 33.3333%
+        +m(1)
+          top: 0
+          left: 66.6666%
+          right: 0
+
+        +m(2)
+          top: 260px
+          left: 0
+          right: 33.3333%
+
+        &:hover .post__figure--0:before
+          left: -20px
+        &:hover .post__figure--1:before
+          top: -20px
+        &:hover .post__figure--2:before
+          right: -20px
+      @media (max-width: $screen-sm-max)
+        +margin(1)
+        display: flex
+        flex-wrap: wrap
+    +e(details)
+      +clearfix
+      @media (min-width: $screen-md-min)
+        width: 50%
+        float: left
+        height: 260px
+        padding: 10px 30px
+        +m(1)
+          width: 100%
+          float: none
+        +m(2)
+          float: right
+      @media (max-width: $screen-sm-max)
+        order: 1
+        +margin(0.5)
+    +e(preview)
+      @media (min-width: $screen-md-min)
+        width: 50%
+        float: left
+        +m(1)
+          width: 100%
+          float: none
+      @media (max-width: $screen-sm-max)
+        order: 0
+        width: 100%
+    +e(figure)
+      @media (min-width: $screen-md-min)
+        position: relative
+        overflow: hidden
+        &:before
+          +arrow
+        +m(0)
+          &:before
+            top: 50%
+            left: -30px
+            margin-top: -25px
+        +m(1)
+          &:before
+            left: 50%
+            top: -30px
+            margin-left: -25px
+        +m(2)
+          &:before
+            top: 50%
+            right: -30px
+            margin-top: -25px
+
+    +e(name)
+      +margin(0.2)
+
+    +e(intro)
+      +hide-overflow(3)
+      p
+        margin-bottom: 0
+
+  +m(standart)
+    @media (max-width: $screen-xs-max)
+      +margin(-1)
+    +e(item)
+      +make-column($sm: 4)
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+        +pd-lr(normal)
+    +e(details)
+      +margin(1)
+    +e(name)
+      +margin(0.5)
+    +e(intro)
+      +margin(0.5)
+      p
+        margin-bottom: 0
+    +e(more)
+      +margin(0.5)
+
+  +m(preview)
+    +e(list)
+      position: relative
+      +clearfix
+      +margin(3.5)
+    +e(item)
+      +make-column($md: 4, $sm: 6, $sticky: true)
+      position: relative
+      overflow: hidden
+      &:hover
+        .post__details
+          transform: translateY(0)
+      +m(0)
+        width: 50%
+        @media (max-width: $screen-xs-max)
+          width: 100%
+      @media (max-width: $screen-md-max)
+        &:first-of-type
+          +margin(1)
+
+    +e(preview-img)
+      width: 100%
+    +e(details)
+      position: absolute
+      left: 0
+      right: 0
+      bottom: 0
+      +gradient-vertical(rgba(#000, 0), rgba(#000, 0.5))
+      color: #fff
+      font-weight: 600
+      padding: 30px 20px 20px
+      transition: 0.3s
+      transform: translateY(50px)
+      @media (max-width: $screen-md-max)
+        transform: translateY(0)
+    +e(name)
+      margin-top: 0
+      +title-color(#fff)
+    +e(time)
+      +margin(0.6)
+      float: left
+    +e(more)
+      +margin(0.6)
+      float: right
+  +m(recent)
+    +e(item)
+      +clearfix
+      +pd(0.5)
+      +border-bottom
+    +e(preview)
+      +make-column($lg: 4, $sticky: true)
+      +lh-fix(20)
+    +e(details)
+      +make-column($lg: 8)
+      @media (max-width: $screen-md-max)
+        +margin(1)
+        padding: 0
+    +e(name)
+      margin-top: 0
+
+  +m(list)
+    +e(preview-img)
+      width: 100%
+      +m(grid)
+        display: none
+    +e(name)
+      +margin(0.2)
+    +e(info)
+      +pd(1)
+      +pd-lr(medium)
+      background: #fff
+    +e(categories)
+      +margin(0.2)
+    +e(author)
+      font-weight: 600
+    +e(intro)
+      +margin(0.2)
+    +e(comments)
+      float: right
+    +e(more)
+      +rtl
+        margin-right: 15px
+
+  +m(grid)
+    +e(preview-img)
+      width: 100%
+      +m(list)
+        display: none
+    +e(info)
+      +pd(0.5)
+      +pd-lr(medium)
+      background: #fff
+    +e(name)
+      margin-top: 0
+    +e(author)
+      font-weight: 600
+    +e(categories)
+      +margin(0.2)
+      line-height: 1
+      a
+        line-height: 1
+    +e(intro)
+      +margin(0.2)
+      +hide-overflow(3)
+    +e(comments)
+      float: right
+      +m(list)
+        display: none
+    +e(more)
+      +margin(0.5)
+      +rtl
+        margin-right: 15px
+    +e(comments)
+      +margin(0.5)
+
+  +m(masonry)
+    +e(intro)
+      max-height: initial
+      &:after
+        display: none
+  +m(details)
+    +pdb(1)
+    +e(preview-img)
+      width: 100%
+    +e(time-svg)
+      width: 20px
+      height: 20px
+      fill: $link-color
+      position: relative
+      top: 4px
+      margin-right: 10px
+      +rtl
+        margin-right: 0
+        margin-left: 10px
+    +e(author)
+      +margin(1)
+      a
+        font-weight: 600
+    +e(img-full)
+      margin-left: -30px
+      margin-right: -30px
+    img
+      +mb(1)
+
+.post--details > :first-child
+    margin-top: 0
+.post--details + .widget__footer
+  margin-top:  0

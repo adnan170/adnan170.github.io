@@ -1,0 +1,18 @@
+// BEGIN HEADER
+header.header--v3
+  .container
+    .header__row
+      a.header__logo(href='index.html')
+        svg.header__logo-svg
+          use(xlink:href='#icon-logo')
+
+      button.header__menu.js-menu-btn
+        svg.header__menu-svg
+          use(xlink:href='#icon-menu')
+        strong Menu
+
+      +toolbar(3)
+
+      a.btn--flat-rounded.header__donate(href='donate.html') Donate
+
+// END HEADER

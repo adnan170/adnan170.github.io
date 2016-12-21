@@ -1,0 +1,111 @@
+mixin slider(type, params, items)
+  // BEGIN SLICK SLIDER
+  .slider.slider--wide.js-dapi-slider(class='slider--v' + type)&attributes(params)
+    -var images = ['1920x660', '1920x660', '1920x740', '1920x1010', '1920x940', '1920x860', '1920x860'];
+    .slider__block.js-slick-slider
+      each item in items
+        .slider__item
+          .slider__preview(class='slider__preview--v#{item.index+1}')
+            if item.index == 4
+              video.slider__preview-video(poster="http://codefactory47.com/public/webelieve/media/catoliccover-big.jpg", autoplay="", loop='', class="slider-video")
+                source(src="http://codefactory47.com/public/webelieve/media/catolic_girl_4.mp4" type="video/mp4")
+                source(src="http://codefactory47.com/public/webelieve/media/catolic_girl_4.webm" type="video/webm")
+            else
+              img.slider__preview-img(src='#{path.media}/banner/#{images[type-1]}/banner-#{item.index+1}.jpg', alt='')
+
+          if type == 8
+          else if type == 7
+            a.fa.fa-search.slider__icon.js-gallery-item(href='#{path.media}/banner/#{images[type-1]}/banner-#{item.index+1}.jpg', data-size="1740x960", data-gallery-index=i)
+          else
+            .slider__caption(class='slider__caption--v#{item.index+1}')
+              case item.index
+                when 0
+                  .slider__heading(class='slider__heading--v#{item.index+1}') Our Approach
+                when 2
+                  .slider__heading(class='slider__heading--v#{item.index+1}') Make a miracle happen.
+                when 3
+                  .slider__heading(class='slider__heading--v#{item.index+1}') Dr. Stephen R. White
+                when 4
+                  .slider__heading(class='slider__heading--v#{item.index+1}') Concerts and Events in California
+                when 5
+                  .slider__heading(class='slider__heading--v#{item.index+1}') Psalms 34:14
+
+
+              h1.slider__title(class='slider__title--v#{item.index+1}')!= item.title
+              h4.slider__subtitle(class='slider__subtitle--v#{item.index+1}')!= item.subtitle
+
+              .slider__footer
+                case item.index
+                  when 0
+                    a.btn--flat.slider__more(class='slider__more--v#{item.index+1}', href='about.html') Read more
+                  when 1
+                    a.btn--flat.slider__more(class='slider__more--v#{item.index+1}', href='community_member.html') Read more
+                  when 2
+                    a.btn--flat-rounded.slider__donate(class='slider__donate--v#{item.index+1}', href='donate.html') Donate To This Cause
+                    span.slider__sep
+                    a.btn--border-brand.slider__read(class='slider__read--v#{item.index+1}', href='cause_details.html') Read More
+                  when 3
+                    .slider__links
+                      a.slider__link-item(href='sermon_details.html')
+                        svg.slider__link-svg
+                          use(xlink:href='#icon-video')
+                      a.slider__link-item(href='sermon_details.html')
+                        svg.slider__link-svg
+                          use(xlink:href='#icon-audio')
+                      a.slider__link-item(href='sermon_details.html')
+                        svg.slider__link-svg
+                          use(xlink:href='#icon-speaker')
+                      a.slider__link-item(href='sermon_details.html')
+                        svg.slider__link-svg
+                          use(xlink:href='#icon-file')
+
+                  when 4
+                    a.btn--flat.slider__more(class='slider__more--v#{item.index+1}', href='sermon_details.html') Read more
+                    a.slider__watch(href='sermon_details.html') Watch Concert
+
+
+    unless [4].indexOf(type) > -1
+      .slider__controls
+        button.slider__control.slider__control--prev.js-slider-prev
+        button.slider__control.slider__control--next.js-slider-next
+  // END SLICK SLIDER
+  unless [3, 4, 5, 6, 7].indexOf(type) > -1
+    // BEGIN SLICK SLIDER NAV
+    .slider.slider--nav(class='slider--nav-v' + type)
+      .slider__block.js-slick-slider
+        each item, i in locals.data.slider
+          .slider__item
+            img(src='#{path.media}/banner/thumbs/' + item.thumb, alt='')
+    // END SLICK SLIDER NAV
+
+mixin sliderNoCaption(type, params, items)
+  // BEGIN SLICK SLIDER
+  .slider.slider--wide.js-dapi-slider(class='slider--v' + type)&attributes(params)
+    -var images = ['1920x660', '1920x660', '1920x740', '1920x1010', '1920x940', '1920x860', '1920x860'];
+    .slider__block.js-slick-slider
+      each item in items
+        .slider__item
+          .slider__preview(class='slider__preview--v#{item.index+1}')
+            if item.index == 4
+              video.slider__preview-video(poster="http://codefactory47.com/public/webelieve/media/catoliccover-big.jpg", autoplay="", loop='', class="slider-video")
+                source(src="http://codefactory47.com/public/webelieve/media/catolic_girl_4.mp4" type="video/mp4")
+                source(src="http://codefactory47.com/public/webelieve/media/catolic_girl_4.webm" type="video/webm")
+            else
+              img.slider__preview-img(src='#{path.media}/banner/#{images[type-1]}/banner-#{item.index+1}.jpg', alt='')
+
+
+
+    unless [4].indexOf(type) > -1
+      .slider__controls
+        button.slider__control.slider__control--prev.js-slider-prev
+        button.slider__control.slider__control--next.js-slider-next
+  // END SLICK SLIDER
+  unless [3, 4, 5, 6, 7].indexOf(type) > -1
+    // BEGIN SLICK SLIDER NAV
+    .slider.slider--nav(class='slider--nav-v' + type)
+      .slider__block.js-slick-slider
+        each item, i in locals.data.slider
+          .slider__item
+            img(src='#{path.media}/banner/thumbs/' + item.thumb, alt='')
+    // END SLICK SLIDER NAV
+

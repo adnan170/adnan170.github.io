@@ -1,0 +1,46 @@
+a
+  color: $link-color
+  text-decoration: none
+  &.hover,
+  &:hover
+    color: $link-hover-color
+    text-decoration: $link-hover-decoration
+    cursor: pointer
+  &.focus,
+  &:focus
+    color: $link-color
+  &.active,
+  &:active
+    color: $link-color
+    text-decoration: none
+  &.disabled,
+  &:disabled
+    cursor: not-allowed
+    color: #ccc
+
+dl
+  margin: 0
+  dt
+    font-weight: normal
+  dd
+    font-weight: 600
+    color: $title-color
+    +rtl
+      margin-right: 0
+  &.dl-table
+    display: flex
+    flex-wrap: wrap
+    dt
+      width: 30%
+    dd
+      width: 70%
+  &.dl-list
+    dt
+      +margin(1)
+
+img,
+video
+  max-width: 100%
+
+.js-dapi-knob
+  visibility: hidden

@@ -1,0 +1,80 @@
+/*------------------------------------------------------------------
+  * nextevent / .nextevent
+  * .nextevent--countcircles
+  * .nextevent--countpanel
+  * .nextevent--counttimer
+  ******************************************************************/
++b(nextevent)
+  +e(date)
+    font-size: 15px
+    margin: 0.9em 0 0
+    display: block
+
+  +e(name)
+
+  +e(intro)
+    p:last-of-type
+      margin-bottom: 0
+  +e(more)
+    +margin(1)
+  +e(info)
+    +make-column($xs: 12, $sm:2)
+
+  +m(countcircles)
+    +e(details)
+      text-align: center
+      +margin(0.5)
+    +e(intro)
+      margin: 0.6em 17em 0
+      @media (max-width: $screen-md-max)
+        margin: 0.6em 15px 0
+
+  +m(countpanel)
+    +e(item)
+    +e(preview)
+      +make-column($sm: 4)
+      +make-lg-column-offset(1)
+      +margin(2)
+      +lh-fix(24)
+      @media (max-width: $screen-xs-max)
+        padding: 0
+    +e(details)
+      +margin(1)
+      +make-column($lg: 6, $sm: 8)
+      @media (max-width: $screen-xs-max)
+        padding: 0
+    +e(name)
+    +e(intro)
+      +margin(0.5)
+    +e(more)
+  +m(counttimer)
+    +make-row
+    @media (max-width: $screen-sm-max)
+      margin: 0
+    +e(item)
+    +e(preview)
+      +make-column($md: 6)
+      +lh-fix(20)
+      @media (max-width: $screen-md-max)
+        padding: 0
+        width: 70%
+        margin: 0 auto
+        +margin(1)
+      @media (max-width: $screen-xs-max)
+        width: 100%
+
+    +e(preview-img)
+      width: 100%
+    +e(details)
+      +make-column($md: 6)
+      @media (max-width: $screen-sm-max)
+        padding: 0
+    +e(name)
+      +margin(0.5)
+    +e(date)
+      +margin(1.5)
+      @media (max-width: $screen-sm-max)
+        +margin(1)
+    +e(intro)
+      +margin(0.5)
+    +e(more)

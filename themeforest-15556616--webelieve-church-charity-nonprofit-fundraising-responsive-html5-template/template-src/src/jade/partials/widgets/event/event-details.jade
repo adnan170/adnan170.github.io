@@ -1,0 +1,95 @@
++widget(null, 'card details')
+  .event.event--details
+    nav.widget__categories
+      a Prayer
+      | /
+      a Mettings
+      | /
+      a Jesus
+      | /
+      a WeBeleive Church
+    .widget__header
+      .widget__header-title
+        h2.widget__title= event.name
+        h5.event__organaizer Organizer -
+          strong We Beleive Church
+
+      .widget__header-column
+        h6.event__price Ticket price $#{event.price}
+        a.btn--flat.event__book Book ticket
+
+
+    .widget__preview
+      span.event__status= event.status
+      a
+        img.widget__preview-img(src='#{path.media}/events/event-details.jpg', alt='')
+
+      +collapser('Event details', 'event-details')
+        .event__info
+          span.event__time
+            svg.event__info-svg
+              use(xlink:href='#icon-time')
+            span Start Date -
+            | #{event.time}
+            span End Date -
+            | #{event.time}
+          address.event__location
+            svg.event__info-svg
+              use(xlink:href='#icon-location')
+            | #{event.address}
+          h5.event__detail-phones
+            svg.event__info-svg
+              use(xlink:href='#icon-phone')
+            a + (975) 8376 6984,
+            a + (975) 8576 9287
+            a.event__detail-mail
+              svg.event__info-svg
+                use(xlink:href='#icon-mail')
+              | welcome@webeleive.com
+        .event__social
+          .social.social--white
+            .social__list
+              a.social__item(href='#')
+                i.fa.fa-facebook
+              a.social__item(href='#')
+                i.fa.fa-twitter
+              a.social__item(href='#')
+                i.fa.fa-google-plus
+    +collapser('The schedule', 'event-schedule')
+      table.event__schedule-table
+        tbody
+          tr
+            td.event__schedule-time 10.00 am - 11.30 am
+            td.event__schedule-description Welcome to Event
+          tr
+            td.event__schedule-time 7.30 pm - 1.00 am
+            td.event__schedule-description Thinking lesson by Mateo
+          tr
+            td.event__schedule-time 7.00 pm - 7.30 pm
+            td.event__schedule-description Collegium Musicum Tribute Concert
+          tr
+            td.event__schedule-time 1.00 pm - 7.00 pm
+            td.event__schedule-description Tour Guide Training with Gloria Shabman
+          tr
+            td.event__schedule-time 1.00 pm - 7.00 pm
+            td.event__schedule-description Meeting with Nick Marra
+
+
+    .widget__description
+      p
+        | Highlands Growth Track is designed to help you become a fully-devoted follower of Jesus Christ. From the initial decision to find out more about the vision of Church of the Highlands, to a fulfilling leadership role on our team, we will provide you with a path to experience growth and fulfillment. Join us at our Grants Mill, Auburn, Fultondale, Greystone, Huntsville, Montgomery, Riverchase, Tuscaloosa or Woodlawn campus as we celebrate water baptism. If you are planning to be baptized, please bring a towel and change of clothes. Friends and family are encouraged to attend. Communion, and empowering, in-depth teaching from God’s Word during our First Wednesday worship experience. Trust us—it will be the best part of your week, and you will leave refreshed and ready to take on the rest of your month. Join us for an extended time of powerful worship.
+    .widget__map
+      .map.map--event
+        .map__buttons
+          button.map__change-map.js-map-btn.active(type='button') Property Map
+        .map__wrap
+          .map__view.js-map-canvas
+
+    h5.event__mess Register on the event right now!
+    a.btn--flat.event__register.js-event-register-btn(href='#') Register
+
+    .event__form.js-event-register-form
+      +form('comment')
+      // end of block .comment__form
+
++pagination('Event')

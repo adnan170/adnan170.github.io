@@ -1,0 +1,327 @@
+/*------------------------------------------------------------------
+  * Toolbar / .toolbar
+  * .toolbar--v1
+  * .toolbar--v2
+  * .toolbar--v3
+  * .toolbar--v4
+  * .toolbar--v5
+  * .toolbar--v6
+  * More info docs_build/ui/toolbar.html
+  ******************************************************************/
++b(toolbar)
+  display: flex
+  align-items: center
+  justify-content: space-between
+  width: 220px
+  +e(lang)
+    @media (max-width: $screen-xs-max)
+      position: inherit
+  +e(lang-btn)
+    +fz(19)
+    line-height: 1
+    text-transform: uppercase
+    font-weight: 600
+    color: $panel-bg-color
+    background: none
+    border: none
+    .open &,
+    &:hover
+      color: $brand-color
+  +e(lang-dropdown)
+    width: 44px
+    border: none
+    z-index: 20
+  +e(lang-link)
+    color: $default-color
+    padding: 3px 30px
+    display: block
+    transition: 0.3s
+    &:hover
+      color: $brand-color
+      text-decoration: none
+      padding: 3px 30px 3px 40px
+
+  +e(auth)
+  +e(auth-item)
+    position: relative
+    height: 25px
+    @media (max-width: $screen-xs-max)
+      position: inherit
+      width: 42px
+      text-align: center
+      height: 20px
+
+    .dropdown-menu
+      right: 0
+      left: auto
+
+  +e(auth-form)
+    display: none
+    &:first-of-type
+      display: block
+
+  +e(auth-btn)
+    +btn
+  +e(user-svg)
+    width: 20px
+    height: 20px
+  +e(auth-dropdown)
+    +dropdown-menu
+  +e(search)
+    position: relative
+    &.active,
+    &:hover
+      .form-control
+        width: 240px
+    .form-control
+      position: absolute
+      transition: 0.3s
+
+    @media (max-width: $screen-xs-max)
+      width: 25px
+      text-align: center
+
+    +m(v2)
+      .form-control
+        background: $default-color-dark
+        left: 0
+        top: 0
+        bottom: 0
+        border-radius: 0
+        padding-left: 80px
+        padding-right: 0
+        color: #fff
+        height: 100%
+
+  +e(search-btn)
+    +btn
+    +font-awesome-icon($fa-var-search, $size: 1em)
+    color: $panel-bg-color
+    position: relative
+    z-index: 5
+    transition: 0.3s
+    padding: 0
+    width: 25px
+    text-align: right
+    line-height: 1.9
+    &.active,
+    &:hover
+      color: $brand-color
+    +m(v2)
+      color: #fff
+      padding: 1.2em 0
+      width: 80px
+      text-align: center
+
+  +e(icon-user)
+    width: 17px
+    height: 27px
+    @media (max-width: $screen-md-max)
+      width: 15px
+      height: 25px
+    @media (max-width: $screen-xs-max)
+      width: 14px
+      height: 18px
+    fill: $panel-bg-color
+    .open &,
+    &:hover
+      fill: $brand-color
+  .dropdown-menu
+    @media (max-width: $screen-xs-max)
+      left: -15px!important
+      right: -15px!important
+
+  +m(v1)
+    @media (max-width: $screen-xs-max)
+      width: auto
+      flex: 1
+      max-width: 170px
+    +e(search)
+      height: 30px
+      &.active,
+      &:hover
+        .toolbar__search-btn
+          transform: translateX(-9px)
+        .form-control
+          border-color: $input-border
+          padding-right: 30px
+      .form-control
+        background: #fff
+        border-radius: 20px
+        border: 1px solid #fff
+        position: absolute
+        top: -5px
+        right: 0
+
+    +e(auth-item)
+  +m(v2)
+    width: 100px
+    @media (max-width: $screen-xs-max)
+      width: 80px
+    +e(lang)
+      .dropdown-menu
+        right: 0
+        left: auto
+    +e(lang-btn)
+      color: #fff
+    +e(icon-user)
+      fill: #fff
+
+  +m(v3)
+    @media (max-width: $screen-sm-max)
+      width: 140px
+    @media (max-width: $screen-xs-max)
+      order: 3
+      width: auto
+    +e(search)
+      height: 30px
+      &.active,
+      &:hover
+        .form-control
+          border-color: $input-border
+          padding-right: 30px
+
+      .form-control
+        background: #fff
+        border-radius: 20px
+        border: 1px solid #fff
+        position: absolute
+        top: -3px
+        right: -9px
+      @media (max-width: $screen-xs-max)
+        display: none
+
+    +e(lang)
+      @media (max-width: $screen-xs-max)
+        display: none
+    .dropdown-menu
+      top: 40px
+  +m(v4)
+    order: 1
+    margin-right: auto
+    margin-left: 70px
+    z-index: 10
+    @media (max-width: $screen-md-max)
+      margin-left: 30px
+      width: 120px
+    @media (max-width: $screen-xs-max)
+      order: 3
+      width: auto
+      margin: 0
+    +e(lang)
+      @media (max-width: $screen-xs-max)
+        display: none
+    +e(lang-btn)
+      color: #fff
+    +e(icon-user)
+      fill: #fff
+    +e(search)
+      height: 30px
+      &.active,
+      &:hover
+        .form-control
+          border-color: #fff
+          padding-left: 35px
+          opacity: 1
+          color: #fff
+      .form-control
+        background: none
+        border-radius: 20px
+        border: 1px solid #fff
+        position: absolute
+        top: -5px
+        left: -10px
+        opacity: 0
+      @media (max-width: $screen-xs-max)
+        display: none
+
+    +e(search-btn)
+      color: #fff
+    .dropdown-menu
+      top: 55px
+      right: auto
+      left: 0
+
+  +m(v5)
+    margin-left: 70px
+    margin-right: auto
+    order: 1
+    @media (max-width: $screen-md-max)
+      margin-left: 30px
+      width: 120px
+    @media (max-width: $screen-xs-max)
+      order: 3
+      width: auto
+      margin: 0
+    +e(search)
+      height: 30px
+      &.active,
+      &:hover
+        .toolbar__search-btn
+          color: $panel-bg-color
+        .form-control
+          border-color: $input-border
+          padding-left: 35px
+          opacity: 1
+
+      .form-control
+        background: #fff
+        border-radius: 20px
+        border: 1px solid #fff
+        position: absolute
+        top: -5px
+        left: -9px
+        opacity: 0
+      @media (max-width: $screen-xs-max)
+        display: none
+    +e(lang)
+      @media (max-width: $screen-xs-max)
+        display: none
+
+    .dropdown-menu
+      top: 44px
+      right: auto
+      left: 0
+      @media (max-width: $screen-sm-max)
+        top: 43px
+      @media (max-width: $screen-xs-max)
+        top: 60px
+  +m(v6)
+    order: -1
+    @media (max-width: $screen-xs-max)
+      width: 120px
+    +e(lang-btn)
+      color: #fff
+    +e(icon-user)
+      fill: #fff
+    +e(search)
+      height: 30px
+      &.active,
+      &:hover
+        .form-control
+          border-color: $input-border
+          padding-left: 35px
+          opacity: 1
+
+      .form-control
+        background: none
+        border-radius: 20px
+        border: 1px solid #fff
+        color: #fff
+        position: absolute
+        top: -5px
+        left: -10px
+        opacity: 0
+        @media (max-width: $screen-xs-max)
+          background: #fff
+          width: 200px
+          color: $default-color
+    +e(search-btn)
+      color: #fff
+      @media (max-width: $screen-xs-max)
+        +when('search.active')
+          color: $default-color
+    .dropdown-menu
+      right: auto
+      left: 0
+      top: 65px

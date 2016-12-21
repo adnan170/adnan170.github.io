@@ -1,0 +1,57 @@
+.listing__item
+  .cause__item
+    a.cause__preview(href='cause_details.html')
+      img.cause__preview-img.cause__preview-img--list(src='#{path.media}/causes/900x342/' + cause.picture, alt='')
+      img.cause__preview-img.cause__preview-img--grid(src='#{path.media}/causes/500x330/' + cause.picture, alt='')
+
+    .cause__details
+      .cause__info(class=donateBar ? 'cause__info--wide' : '')
+        h3.cause__name
+          a(href='cause_details.html')= cause.name
+
+        nav.cause__categories #[a Children] / #[a Earthquake] / #[a Faith] / #[a Nepal]
+
+        .cause__intro
+          p We meet them right where they are, helping them create solutions they can maintain – and build on. Now she and her family have a new home. And it is very happy...
+      .cause__donation(class=donateBar ? 'cause__donation--wide' : '')
+        if donateBar
+          .cause__donation-bar
+            strong.cause__donated $#{cause.funded} Donated
+            strong.cause__raised of $4000 Raised
+            .cause__bar
+              .cause__progress(style='width: 60%;')
+          .cause__donation-column
+            .social.social--cause
+              .social__list
+                a.social__item
+                  .fa.fa-facebook
+                a.social__item
+                  .fa.fa-twitter
+                a.social__item
+                  .fa.fa-google-plus
+
+            a.btn--flat.cause__donate(href='cause_details.html') Donate now
+        else
+
+          .cause__counter
+            .cause__circle
+              input.js-dapi-knob(type='text', value=cause.funded,  data-bgColor='#f0f0f0')
+            .cause__value= cause.funded
+              span.cause__value-measure %
+              .cause__value-label Funded
+
+            .social.social--cause
+              .social__list
+                a.social__item
+                  .fa.fa-facebook
+                a.social__item
+                  .fa.fa-twitter
+                a.social__item
+                  .fa.fa-google-plus
+
+          .cause__scope
+            strong.cause__scope-donated  $#{cause.donated}
+            strong.cause__scope-label  Donated
+            span.cause__scope-total  $#{cause.total} of Total Goal
+
+            a.btn--flat.cause__donate(href='cause_details.html') Donate Now

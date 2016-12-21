@@ -1,0 +1,20 @@
+// BEGIN PRODUCTS MAIN
+section.products.products--main
+  h2.widget__title Our Charity Shop
+  .products__list.js-isotope-products
+    .products__item.products__placeholder.placeholder
+    .products__item.products__placeholder.placeholder
+    each product, i in locals.data.products
+      .products__item
+        button.products__basket.js-products-basket-add
+          svg.products__basket-svg
+            use(xlink:href='#icon-basket')
+        a.products__preview(href='product.html')
+          img.products__img(src='#{path.media}/products/290x220/' + product.picture, alt='')
+        a.products__name(href='product.html')= product.title
+        span.products__price $#{product.price}
+
+  .products__buttons
+    button.products__prev.js-products-prev(type='button')
+    button.products__next.js-products-next(type='button')
+// END PRODUCTS MAIN

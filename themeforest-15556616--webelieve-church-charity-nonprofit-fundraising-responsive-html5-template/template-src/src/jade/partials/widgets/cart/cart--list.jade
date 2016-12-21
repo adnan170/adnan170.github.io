@@ -1,0 +1,27 @@
++widget('Your Cart', 'card')
+  section.cart.cart--list
+    h5.main__subname You have 5 products
+    .cart__list
+      each product, i in locals.data.products
+        if i < 5
+          .cart__item.js-cart-item
+            .cart__preview
+              img.cart__img(src='#{path.media}/products/290x220/' + product.picture, alt='')
+            .cart__info
+              .cart__name= product.title
+            .cart__quantity
+              include ../../mixins/numberfield
+              +numberfield
+            strong.cart__price
+              | $#{product.price}
+              if i === 1
+                |  ($100)
+            button.cart__remove.js-cart-remove
+    .cart__coupon
+      .form.form--coupon
+        .row
+          .form-group
+            label.control-label Coupon code
+            input.form-control(type='text')
+          button.btn--flat.form__btn Apply coupon
+          button.btn--flat.form__btn Update cart

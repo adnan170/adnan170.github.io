@@ -1,0 +1,50 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = 'sidebar-hide';
+  - var page = 'contacts';
+  - var pageTitle = 'Contact us';
+  - var mainClass = 'main--subpage main--about';
+
+block content
+  +widget('Our Church address location and contact details.', 'card details')
+    .map.map--contacts
+      .map__buttons
+        button.map__change-map.js-map-btn.active(type='button') Contact Map
+      .map__wrap
+        .map__view.js-map-contact
+
+  +widget(null, 'card')
+    section.contacts
+      .contacts__form
+        h3 Write to Us
+        +form('contacts')
+      .contacts__info
+        h3 Our Address
+        address.address.address--contacts
+          dl.address__list
+            dt.address__list-icon
+              i.fa.fa-map-marker
+            dd.address__list-body
+              | PO Box 16122, Collins Street West
+              | Victoria 10001, Los Angeles, USA
+            dt.address__list-icon
+              i.fa.fa-phone
+            dd.address__list-body #[a +1 202 555 0135], #[a +1 202 777 0135]
+            dt.address__list-icon
+              i.fa.fa-envelope-o
+            dd.address__list-body
+              a(href='welcome@webeleive.com') welcome@webeleive.com
+
+        .social.social--footer
+          h3 Our networks
+          .social__list
+            a.social__item(href='#')
+              i.fa.fa-facebook
+            a.social__item(href='#')
+              i.fa.fa-twitter
+            a.social__item(href='#')
+              i.fa.fa-google-plus
+            a.social__item(href='#')
+              i.fa.fa-youtube
+            a.social__item(href='#')
+              i.fa.fa-vimeo-square

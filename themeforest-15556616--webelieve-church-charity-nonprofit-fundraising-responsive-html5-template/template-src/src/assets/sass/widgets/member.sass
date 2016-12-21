@@ -1,0 +1,89 @@
+/*------------------------------------------------------------------
+  * Member / .member
+  * .memeber--list
+  * .memeber--details
+  ******************************************************************/
+
++b(member)
+  +m(list)
+    +e(intro)
+      +margin(0.5)
+    +e(list)
+      +make-row
+      +pdb(0.5)
+    +e(item)
+      +make-column($lg: 4, $sm: 6, $xs: 12)
+      +margin(1)
+      +when('sidebar-hide', absolute)
+        +make-column($lg: 3)
+      +rtl
+        @media (min-width: $screen-sm-min)
+          float: right
+
+    +e(preview)
+      position: relative
+      overflow: hidden
+
+    +e(img)
+      width: 100%
+      transition: 0.3s
+      +when('item:hover')
+        transform: scale(1.1)
+
+    +e(caption)
+      text-align: center
+      @media (min-width: $screen-lg-min)
+        position: absolute
+        top: 0
+        bottom: 0
+        width: 100%
+        background: rgba(#808080, 0.7)
+        color: #fff
+        opacity: 0
+        transition: 400ms
+        &:hover
+          opacity: 1
+    +e(name)
+      font-weight: 600
+      display: block
+      +vr-fz(30, $margin: triple)
+      line-height: 1.2
+      @media (max-width: $screen-md-max)
+        color: $title-color
+        +margin(0.5)
+    +e(post)
+      width: 100%
+      display: block
+    +e(more)
+      margin: 12px 0 0 0
+      @media (max-width: $screen-md-max)
+        border-color: $brand-color
+        color: $brand-color
+
+  +m(details)
+    +e(row)
+      display: flex
+      flex-wrap: wrap
+    +e(photo)
+      +lh-fix
+      width: 50%
+      @media (max-width: $screen-xs-max)
+        width: 100%
+    +e(img)
+      width: 100%
+    +e(info)
+      flex: 1
+      margin-left: 30px
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+        margin-left: 0
+        width: 100%
+      +rtl
+        margin-left: 0
+        margin-right: 30px
+        @media (max-width: $screen-xs-max)
+          margin-right: 0
+    +e(social)
+      +margin(1)
+    +e(descr)
+      +margin(1)

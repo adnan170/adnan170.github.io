@@ -1,0 +1,23 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'calendar';
+  - var pageTitle = 'Calendar';
+  // - var sidebarTitle = 'Event';
+  - var mainClass = 'main--subpage main--events';
+
+block content
+  +widget('Event Calendar', 'card')
+    .calendar.js-calendar
+      .calendar__controls
+        button.btn--border-default.calendar__btn.js-calendar-prev
+          svg.calendar__controls-svg
+            use(xlink:href='#icon-arrow-left')
+        h4.calendar__period.js-calendar-period April 2015
+        button.btn--border-default.calendar__btn.js-calendar-next
+          svg.calendar__controls-svg
+            use(xlink:href='#icon-arrow-right')
+
+      .calendar__view.js-fullcalendar
+
+

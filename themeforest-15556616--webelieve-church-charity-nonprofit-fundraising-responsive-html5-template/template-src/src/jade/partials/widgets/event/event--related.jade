@@ -1,0 +1,6 @@
++widget('Related events', 'main')
+  .event.event--grid.event--related.js-event(data-modifier='grid')
+    .listing.listing--grid
+      each event, i in locals.data.events
+        if i < 3
+          include event__item--grid

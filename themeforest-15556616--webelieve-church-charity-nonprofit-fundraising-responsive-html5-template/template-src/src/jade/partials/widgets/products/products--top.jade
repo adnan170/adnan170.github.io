@@ -1,0 +1,16 @@
+.products.products--top
+  .products__list
+    each product, i in locals.data.products
+      if i < 3
+        .products__list-item
+          a.products__preview(href='product.html')
+            img.products__img(src='#{path.media}/products/top/' + product.picture, alt='')
+          .products__info
+            if i === 0
+              .products__label Sale!
+
+            a.products__name(href='product.html')= product.title
+            if i === 0
+              del.products__price-old $56
+
+            span.products__price $#{product.price}

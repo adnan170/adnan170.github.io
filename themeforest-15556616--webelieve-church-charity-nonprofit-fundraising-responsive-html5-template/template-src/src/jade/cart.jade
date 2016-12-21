@@ -1,0 +1,11 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'cart';
+  - var pageTitle = 'Cart';
+  - var sidebarTitle = 'Cart';
+  - var mainClass = 'main--subpage main--shop';
+
+block content
+  include partials/widgets/cart/cart--list
+  include partials/widgets/cart/cart--summary

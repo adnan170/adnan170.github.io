@@ -1,0 +1,16 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'checkout';
+  - var pageTitle = 'Checkout';
+  - var sidebarTitle = 'Cart';
+  - var mainClass = 'main--subpage main--shop';
+
+block content
+  form.form.form--checkout.js-parsley(action='#')
+    include partials/widgets/cart/checkout
+    +widget('Your order', 'card')
+      - var payment = true;
+      include partials/widgets/cart/cart--order
+
+

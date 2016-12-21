@@ -1,0 +1,22 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = 'scroll-animation';
+  - var page = 'index_2';
+
+block main
+  +widget
+    +slider(1, {'data-arrows': 'true', 'data-asNavFor': 'true', 'data-dots': 'false'}, locals.data.slider)
+  +widget('Next Upcoming event', 'landing')
+    include partials/widgets/nextevent/nextevent--countpanel
+  +widget(null, 'landing panel-bg')
+    include partials/widgets/about/about--columns
+  +widget('Latest Sermons', 'landing')
+    include partials/widgets/sermon/sermon--column
+  +widget('Our Causes', 'landing white cause')
+    include partials/widgets/cause/cause--donation
+  +widget('Upcoming Events', 'landing')
+    include partials/widgets/event/event--columns
+  +widget('Our Gallery', 'landing gallery')
+    include partials/widgets/gallery/gallery-wide
+  +widget('Latest from Blog', 'landing')
+    include partials/widgets/post/post--standart

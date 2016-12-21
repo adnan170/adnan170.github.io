@@ -1,0 +1,18 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'events_grid';
+  - var pageTitle = 'Our events';
+  - var sidebarTitle = 'Event';
+  - var mainClass = 'main--subpage main--events';
+
+block content
+  include partials/chunks/filters
+  +widget(null, 'listing')
+    .event.event--grid.js-switch-view.js-event(data-modifier='grid', data-view='event')
+      .listing.listing--grid
+        each event, i in locals.data.events
+          include partials/widgets/event/event__item--grid
+        each event, i in locals.data.events
+          include partials/widgets/event/event__item--grid
+  +pagination('event', true)

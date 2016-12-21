@@ -1,0 +1,17 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'blog_list';
+  - var pageTitle = 'Our blog';
+  - var sidebarTitle = 'Blog';
+  - var mainClass = 'main--subpage main--blog';
+
+block content
+  include partials/chunks/filters
+  +widget(null, 'listing')
+    .post.post--list.js-switch-view(data-view='post')
+      .listing.listing--list
+        each post, i in locals.data.posts
+          include partials/widgets/post/post__item
+  +pagination('', true)
+

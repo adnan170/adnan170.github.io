@@ -1,0 +1,15 @@
+// BEGIN ABOUT COLUMNS
+section.about.about--columns
+  each about, i in locals.data.about
+    if i < 3
+      .about__item(class='about__item--' + i)
+        a.about__preview(class='about__preview--' + i)
+          figure.about__figure(class='about__figure--' + i)
+            img.about__preview-img(src='#{path.media}/post/390x290/' + about.picture, alt='')
+        .about__details(class='about__details--' + i)
+          h3.about__name
+            a(href='about.html') #{about.name}
+          .about__intro
+            p #{about.intro}
+          a.btn--link.about__more(href='about.html') Read more
+// END ABOUT COLUMNS

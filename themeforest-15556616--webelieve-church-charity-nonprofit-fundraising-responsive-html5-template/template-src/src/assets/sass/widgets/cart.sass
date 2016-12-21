@@ -1,0 +1,157 @@
+/*------------------------------------------------------------------
+  * Cart / .cart
+  * .cart--list
+  * .cart--sidebar
+  * .cart--summary
+  * .cart--checkout
+  * .cart--account
+  ******************************************************************/
++b(cart)
+  +e(login)
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+  +m(list)
+    +clearfix
+    background: #fff
+    +e(list)
+      +margin(1)
+      border-bottom: 1px solid $gray-color
+      border-top: 1px solid $gray-color
+      margin-right: -30px
+      margin-left: -30px
+      @media (max-width: $screen-xs-max)
+        margin-left: -15px
+        margin-right: -15px
+    +e(item)
+      +border-bottom
+      display: flex
+      align-items: center
+      flex-wrap: wrap
+      position: relative
+      @media (max-width: $screen-xs-max)
+        +pdb(1)
+    +e(preview)
+      width: 150px
+      @media (max-width: $screen-xs-max)
+        width: 100%
+    +e(img)
+      width: 100%
+    +e(preview)
+      width: 180px
+      margin-right: 20px
+      @media (max-width: $screen-xs-max)
+        width: 100%
+        margin-right: 0
+    +e(info)
+      flex: 1
+    +e(name)
+      @media (max-width: $screen-xs-max)
+        text-align: center
+    +e(quantity)
+      width: 210px
+      @media (max-width: $screen-xs-max)
+        width: 100%
+        +margin(0.5)
+    +e(price)
+      width: 150px
+      @media (max-width: $screen-xs-max)
+        +margin(0.5)
+        text-align: center
+        width: 100%
+    +e(price)
+    +e(remove)
+      +ti-icon($ti-icon-close, $size: 0.5em)
+      +btn
+      margin-right: 30px
+      color: $default-color
+      @media (max-width: $screen-xs-max)
+        position: absolute
+        top: 35%
+        right: 0
+      +rtl
+        margin-right: 0
+        margin-left: 30px
+        @media (max-width: $screen-xs-max)
+          right: auto
+          left: 0
+    +e(coupon)
+
+  +m(sidebar)
+    +e(items)
+      +margin(0.5)
+    +e(total)
+      margin: 0
+      strong
+        color: $brand-color
+    +e(link)
+      margin-right: 15px
+
+  +m(summary)
+    @media (max-width: $screen-xs-max)
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+    +e(totals)
+      width: 450px
+      font-weight: 600
+      @media (max-width: $screen-xs-max)
+        width: 100%
+      tr
+        +border-bottom
+        td
+          padding: 5px 0
+    +e(totals-product)
+      span
+        +rounded(22px)
+        font-size: 16px
+        background: $gray-color-dark
+        display: inline-block
+        margin-left: 20px
+    +e(totals-price)
+      font-weight: 900
+      +m(highlight)
+        color: $brand-color
+    +e(link)
+      +margin(2)
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+    +e(btn)
+      +margin(2)
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+    +e(payment)
+      +margin(1)
+    +e(payment-list)
+      +ul
+    +e(payment-item)
+      +margin(0.5)
+      position: relative
+      .in-label
+        font-weight: 900
+      img
+        margin: 0 15px
+    +e(payment-subtitle)
+      display: block
+      margin-left: 30px
+  +m(checkout)
+    width: 80%
+    @media (max-width: $screen-xs-max)
+      width: 100%
+  +m(account)
+    +e(coupon)
+      +margin(0.5)
+      display: flex
+      flex-wrap: wrap
+    +e(submit)
+      display: flex
+      justify-content: center
+    +e(link)
+      +m(coupon)
+        +margin(1)
+        margin-left: 15px
+        @media (max-width: $screen-xs-max)
+          margin-left: 0
+    +e(btn)
+      +margin(1.2)
+

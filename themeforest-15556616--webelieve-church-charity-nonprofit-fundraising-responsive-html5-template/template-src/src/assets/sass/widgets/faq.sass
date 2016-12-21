@@ -1,0 +1,76 @@
+/*------------------------------------------------------------------
+  * FAQ block styles
+  + FAQ / .faq
+    __ FAQ item / .faq__item
+    __ FAQ expander / .faq__expander
+    __ FAQ content / .faq__content
+    __ FAQ body / .faq__body
+    __ FAQ footer / .faq__footer
+    __ FAQ close / .faq__close
+  * More info docs_build/ui/faq.html
+  ******************************************************************/
++b(faq)
+  +margin(1)
+  +e(item)
+    +margin(0.2)
+
+  +e(expander)
+    +ti-icon($ti-icon-minus)
+    font-weight: 600
+    color: $default-color
+    position: relative
+    padding-left: 30px
+    padding-right: 15px
+    display: block
+    &:focus,
+    &:hover
+      text-decoration: none
+    &:before
+      color: $brand-color
+      text-decoration: none
+      position: absolute
+      top: -1px
+      left: 0
+    +rtl
+      padding-left: 15px
+      padding-right: 30px
+      &:before
+        right: 0
+        left: auto
+    &.collapsed
+      +ti-icon($ti-icon-plus)
+
+
+  +e(content)
+    padding: 0
+    display: block
+    opacity: 0
+    height: 0
+    overflow: hidden
+    margin-left: 37px
+    +rtl
+      margin-right: 35px
+      margin-left: 0
+
+    @media (min-width: $screen-sm-min)
+      transition: all .5s ease-out
+    &.collapse.in
+      opacity: 1
+      height: auto
+
+  +e(body)
+    +margin(0.5)
+
+  +e(footer)
+
+
+  +e(close)
+    background: none
+    border: none
+    outline: none
+    +ti-icon($ti-icon-close, $size: 0.8em)
+    &:focus,
+    &:hover
+      text-decoration: none
+    &:before
+      margin-right: 20px

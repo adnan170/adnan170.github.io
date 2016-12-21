@@ -1,0 +1,13 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'cause_details';
+  - var pageTitle = 'Our Causes';
+  - var sidebarTitle = 'Causes';
+  - var mainClass = 'main--subpage main--causes';
+
+block content
+  - var cause = locals.data.causes[0];
+  include partials/widgets/cause/cause-details
+
+

@@ -1,0 +1,14 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'event_details';
+  - var pageTitle = 'Our events';
+  - var sidebarTitle = 'Event';
+  - var mainClass = 'main--subpage main--events';
+
+block content
+  - var event = locals.data.events[3];
+  include partials/widgets/event/event-details
+
+  include partials/widgets/event/event--related
+

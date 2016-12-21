@@ -1,0 +1,29 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'about';
+  - var pageTitle = 'About us';
+  - var mainClass = 'main--subpage main--about';
+
+block content
+  +widget('About We Believe Church.', 'card details')
+    .post.post--details
+      header.post__header
+        p Church We Believe was born in 1975. Seventeen denominations came together to form an agency "to do in partnership what none of us could hope to do as well alone." The mission: Feed the hungry, clothe the naked, heal the sick, comfort the aged, shelter the homeless.
+        p
+          strong More than 68 years later the mission remains, though where and how we accomplish it has changed dramatically.
+      .post__preview
+        img.post__preview-img(src='#{path.media}/post/about.jpg', alt='')
+      .post__description
+        p In 1976, in order to provide greater support to refugees and their sponsors in the USA, CWS established refugee resettlement offices in various parts of the U.S.  They played a pivotal role in supporting the growing number of refugees from Southeast Asia who were resettled to the United States in the years after the Vietnam War.  While the number of offices ebbs and flows with refugee admissions, they continue to form the foundation for CWS work in resettling refugees in the US.
+        blockquote It was also in the 1970s that CWS first began responding to U.S. disasters at the request of its member churches. By working together agencies can maximize their impact.
+        p CWS work in international emergency response and development through the 1970s and 1980s focused on working in partnership with other NGO’s and with local groups.  In some instances this led to the creation of new, independent organizations such as the Middle East Council of Churches, the Christian Commission for Development in Bangladesh or CEPAD in Nicaragua.  Working in partnership remains one of the hallmarks of CWS work.  These groups remain valued partners to CWS.
+        p Our Values:
+        ul
+          li Our partners are critical in helping us achieve our objectives.  These local agencies know best the needs of their communities and how we can help.
+          li These local agencies know best the needs of their communities and how we can help.
+          li Auxiliary aids and services are available upon request to individuals with disabilities.
+        img(src='#{path.media}/post/about-1.jpg', style='float: right; margin: 10px 0 10px 20px;', alt='')
+        p More recently, CWS was one of the founding members of a global partnership of faith-based humanitarian agencies, ACT Alliance, with members in 140 countries.  With 130 member organizations, ACT Alliance provides a dynamic environment for collaboration in responding to human needs around the world.  By working together agencies can maximize their impact.
+        p CWS work in international emergency response and development through the 1970s and 1980s focused on working in partnership with other NGO’s and with local groups.  In some instances this led to the creation of new, independent organizations such as the Middle East Council of Churches, the Christian Commission for Development in Bangladesh or CEPAD in Nicaragua.  Working in partnership remains one of the hallmarks of CWS work.  These groups remain valued partners to CWS.
+        h5 For the word of God is living and active. #[br] Sharper than any double-edged sword, it penetrates even to dividing soul and spirit, #[br] joints and marrow; it judges the thoughts and attitudes.

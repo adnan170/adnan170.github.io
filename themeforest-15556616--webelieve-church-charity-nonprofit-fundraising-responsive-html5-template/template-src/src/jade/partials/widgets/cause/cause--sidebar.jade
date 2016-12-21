@@ -1,0 +1,20 @@
+- var cause = locals.data.causes[1];
+.cause.cause--sidebar
+  .cause__item
+    .cause__preview
+      a.cause__preview-link(href='cause_details.html')
+        img.cause__preview-img(src='#{path.media}/causes/cause-1.jpg', alt='')
+
+    .cause__details
+      h4.cause__name
+        a(href='cause_details.html')= cause.name
+
+      .cause__intro
+        p Every mountain top is within reach if you just keep climbing.
+
+    .cause__info
+      strong.cause__donated $2590 Donated
+      .cause__bar
+        .cause__progress(style='width: 60%;')
+      strong.cause__raised of $4000 Raised
+    a.btn--flat.cause__donate(href='cause_details.html') Donate now

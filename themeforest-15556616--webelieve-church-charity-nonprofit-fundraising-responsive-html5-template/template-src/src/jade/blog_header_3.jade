@@ -1,0 +1,10 @@
+extends blog_details
+block config
+  - var bodyClass = 'sidebar-hide';
+  - var page = 'blog_header_3';
+  - var pageTitle = 'Our blog';
+  - var mainClass = 'main--subpage main--blog';
+
+block header
+  include partials/layout/headers/header--v3
+  +nav('v3')

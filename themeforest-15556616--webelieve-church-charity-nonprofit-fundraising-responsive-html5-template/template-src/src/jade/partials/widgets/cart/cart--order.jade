@@ -1,0 +1,45 @@
+.cart.cart--summary
+  table.cart__totals
+    tr
+      td.cart__totals-product White praying Angel #[span 1]
+      td.cart__totals-price $79
+    tr
+      td.cart__totals-product Colorful Christianity Cross #[span 3]
+      td.cart__totals-price $36
+    tr
+      td.cart__totals-product White candle #[span 1]
+      td.cart__totals-price $49
+    tr
+      td.cart__totals-product God’s Cross #[span 2]
+      td.cart__totals-price $36
+    tr
+      td.cart__totals-product Colorful jewerly #[span 2]
+      td.cart__totals-price $24
+    tr
+      td.cart__totals-product Subtotal
+      td.cart__totals-price $224.00
+    tr
+      td.cart__totals-product Shipping and Handling
+      td.cart__totals-price Free Shipping
+    tr
+      td.cart__totals-product Total
+      td.cart__totals-price.cart__totals-price--highlight $224.00
+  if payment
+    .cart__payment
+      ul.cart__payment-list
+        li.cart__payment-item
+          input.in-checkbox(type='checkbox', id='payment-1')
+          label.in-label(for='payment-1') Direct Bank Transfer
+          span.cart__payment-subtitle Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.
+
+        li.cart__payment-item
+          input.in-checkbox(type='checkbox', id='payment-2')
+          label.in-label(for='payment-2') Cheque Payment
+        li.cart__payment-item
+          input.in-checkbox(type='checkbox', id='payment-3')
+          label.in-label(for='payment-3')
+            | PayPal What
+            img(src='#{path.img}/payment.png', alt='')
+          a What is PayPal?
+
+    button.btn--flat.cart__btn(type='submit') Place order

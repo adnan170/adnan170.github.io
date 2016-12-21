@@ -1,0 +1,28 @@
++widget(null, 'card details')
+  section.products.products--grid
+    .widget__header
+      .widget__header-title
+        h2.widget__title Products of the week
+        h6.main__subname Showing 23 results
+      .widget__header-column
+        .form-group.form-group--sort
+          label.control-label.sr-only(for='in-products-sort')
+          select.form-control(id='in-products-sort')
+            option Default sorting
+            option A-Z
+            option Z-A
+            option Price Low
+            option Price Hight
+
+    .products__list
+      each product in locals.data.products
+        .products__item
+          button.products__basket.js-products-basket-add
+            svg.products__basket-svg
+              use(xlink:href='#icon-basket')
+          a.products__preview(href='product.html')
+            img.products__img(src='#{path.media}/products/290x220/' + product.picture, alt='')
+          a.products__name(href='product.html')= product.title
+          span.products__price $#{product.price}
+
++pagination('', true)

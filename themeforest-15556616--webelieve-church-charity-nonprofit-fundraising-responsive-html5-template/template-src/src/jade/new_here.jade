@@ -1,0 +1,53 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'new_here';
+  - var pageTitle = 'I’m New Here';
+  - var mainClass = 'main--subpage main--default';
+
+block content
+  +widget('Welcome Message.', 'card')
+    .post.post--details
+      .post__description
+        img(src='#{path.media}/post/post-3.jpg', style='float: right; margin: 10px 0 10px 20px;', alt='')
+        p Church We Believe was born in 1975. Seventeen denominations came together to form an agency "to do in partnership what none of us could hope to do as well alone." The mission: Feed the hungry, clothe the naked, heal the sick, comfort the aged, shelter the homeless.
+        p
+          strong More than 68 years later the mission remains, though where and how we accomplish it has changed dramatically.
+
+        h3 What to expect.
+        p Just before Jesus returned to heaven, He commissioned His disciples this way: “Going into all the world, make disciples of all nations by baptizing them in the name of the Father, and of the Son, and of the Holy Spirit, and teaching them to observe everything that I have commanded you” (literal translation of Matthew 28:19–20a). A disciple is a follower, someone who attaches himself to his leader. Therefore, we reason, Jesus sent the church on its mission to acquaint people in every place with Himself.
+
+        h3 Common Questions.
+        // BEGIN FAQ
+        .faq(role='tablist', aria-multiselectable='true')
+          - var i;
+          each faq, i in locals.data.faq
+            dl.faq__item
+              dt(id='heading-#{i}', class='faq__title', role='tab')
+                a.faq__expander(data-toggle='collapse', data-parent='#accordion', href='#collapse-#{i}', aria-expanded='true', aria-controls='collapse-#{i}', class='collapsed')
+                  | #{faq.title}
+              dd(id='collapse-#{i}', class='faq__content collapse', role='tabpanel', aria-labelledby='heading-#{i}')
+                .faq__body
+                  p #{faq.content}
+                .faq__footer
+                  a.faq__close(data-toggle='collapse', data-parent='#accordion', href='#collapse-#{i}', aria-controls='collapse-#{i}') Close
+            // end of block .faq__item
+        // END FAQ
+
+        h3 Get Involved in our Team or other aspects of the church.
+        div.main__columns
+          p The mission of the church is to know and love Christ so supremely as to represent Him and His values accurately and vividly to the world and serve people’s deepest needs in the way Christ Himself would meet them. As W. C. Robinson says in Baker’s Dictionary of Theology, “Our Lord Jesus Christ is the sun about which the whole mission of the church revolves.
+          p Public worship is the encounter of the risen Redeemer with His people; evangelism is calling men to the Savior; publishing the law of God is proclaiming His lordship; Christian nurture is feeding His lambs and disciplining His flock; ministering to the needs of men is continuing the work of the Great Physician.”
+
+      .map.map--contacts
+        .map__buttons
+          button.map__change-map.js-map-btn.active(type='button') Contact Map
+        .map__wrap
+          .map__view.js-map-contact
+        .map__caption
+           .map__caption-column
+             h3.map__caption-title Service Time.
+             p Saturdays and Sundays at 10:30 and 12:30 Worship Center
+           .map__caption-column
+             h3.map__caption-title Location.
+             p Doolittle Ave 17A, Mayflower Village, Los Angeles, CA, USA, 90185

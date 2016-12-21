@@ -1,0 +1,22 @@
+mixin comment(avatar, warning)
+  .comment__item
+    .comment__body I wonder if Saint Mark’s and Saint Paul’s have ever had a story-telling session.
+    .comment__details
+      .comment__avatar
+        img(src='#{path.media}/avatars/#{avatar}.png', alt='')
+      .comment__info
+        h5.comment__author Francesca Casapietra
+        i.comment__post on “Presiding Bishop preaches at St. Mark’s, Suffolk”
+
+    // end of block .comment__item
+
+
+.comment.comment--sidebar
+  .comment__wrap
+    .comment__list
+      +comment(1)
+      +comment(2)
+      +comment(1)
+      +comment(2)
+      +comment(1)
+

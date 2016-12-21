@@ -1,0 +1,23 @@
+.listing__item
+  .post__item
+    a.post__preview(href='blog_details.html')
+      img.post__preview-img.post__preview-img--list(src='#{path.media}/post/900x344/' + post.picture, alt='')
+      img.post__preview-img.post__preview-img--grid(src='#{path.media}/post/277x213/' + post.picture, alt='')
+
+    .post__info
+      time.post__time(datetime="2016")
+        | #{post.time} / #[i by] #[a.post__author Edgar Smith]
+
+      h3.post__name
+        a(href='blog_details.html')= post.name
+
+      nav.post__categories #[a John Stevenson] / #[a Worship] / #[a Faith] / #[a Love]
+
+      .post__intro
+        p= post.intro
+
+      a.btn--comments.post__comments(href='blog_details.html')
+        i.fa.fa-comment
+        | 18 Comments
+
+      a.btn--link.post__more(href='blog_details.html') Read more

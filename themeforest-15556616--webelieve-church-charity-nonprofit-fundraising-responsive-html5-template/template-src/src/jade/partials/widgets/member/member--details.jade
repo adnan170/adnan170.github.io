@@ -1,0 +1,35 @@
++widget('Chris Sullivan', 'card')
+  section.member.member--details
+    .member__row
+      figure.member__photo
+        img.member__img(src='#{path.media}/members/405x445/member-1.jpg', alt='')
+      .member__info
+        dl.dl-table
+          dt Title
+          dd President, Pastor, Manager
+          dt Department
+          dd Management
+          dt Telephone
+          dd #[a + (975) 8376 6984]
+          dt Email
+          dd #[a chris.sullivan@webelieve.com]
+        .member__social
+          .social.social--left
+              .social__list
+                a.social__item(href='#')
+                  i.fa.fa-facebook
+                a.social__item(href='#')
+                  i.fa.fa-twitter
+                a.social__item(href='#')
+                  i.fa.fa-google-plus
+
+        dl.dl-list
+          dt Languages That Hugh can speak:
+          dd Spanish, English, German, French, Hebrew, Greek
+          dt Favorite Bible passage:
+          dd For I know the plans I have for you,” declares the LORD, “plans to prosper you and not to harm you, plans to give you hope and a future.
+    .member__descr
+      p As a federal contractor, CWS also uses E-Verify to confirm newly-hired employees’ legal eligibility to work in the US. E-Verify is an internet-based system that compares information from an employee’s Form I-9, to data from the U.S. Department of Homeland Security and Social Security Administration records to confirm employment eligibility.
+      p Employers may not use E-Verify to pre-screen job applicants or to re-verify current employees and may not limit or influence the choice of document presented for use on the Form I-9.
+    .member__comment
+      +form('member')

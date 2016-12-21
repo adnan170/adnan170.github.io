@@ -1,0 +1,12 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = 'sidebar-hide';
+  - var page = 'user_register';
+  - var pageTitle = 'Authorization';
+  - var mainClass = 'main--subpage main--default';
+
+block content
+  +widget('Register', 'card')
+    .auth--register
+      - formType = 'inline';
+      include partials/chunks/auth/register

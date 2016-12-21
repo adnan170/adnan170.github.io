@@ -1,0 +1,334 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = 'sidebar-hide';
+  - var page = 'feature_ui';
+  - var pageTitle = 'Feature UI';
+  - var mainClass = 'main--subpage main--default';
+
+block content
+  +widget(null, 'card ')
+    h2 Buttons
+    .demo__buttons
+      h6 Default
+      a.btn--border-brand More Details
+      a.btn--flat Sign In
+      a.btn--flat-rounded Donate
+      button.btn--flat-small Replay
+      a.btn--link Read more
+      button.btn--border-default
+        svg.filters__view-svg
+          use(xlink:href='#icon-grid')
+      .demo__buttons-bg
+        a.btn--border-white More Info
+
+
+    .demo__buttons
+      h6 Disabled
+      a.btn--border-brand.disabled More Details
+      a.btn--flat.disabled Sign In
+      a.btn--flat-rounded.disabled Donate
+      button.btn--flat-small.disabled Replay
+      a.btn--link.disabled Read more
+      button.btn--border-default.disabled
+        svg.filters__view-svg
+          use(xlink:href='#icon-grid')
+      .demo__buttons-bg.disabled
+        a.btn--border-white More Info
+
+    h2 Buttons loading
+    .demo__buttons
+      h6 Gear
+      a.btn--border-brand.btn--loading More Details
+      a.btn--flat.btn--loading Sign In
+      a.btn--flat-rounded.btn--loading Donate
+      button.btn--flat-small.btn--loading Replay
+      a.btn--link.btn--loading Read more
+      button.btn--border-default.btn--loading
+        svg.filters__view-svg
+          use(xlink:href='#icon-grid')
+      .demo__buttons-bg
+        a.btn--border-white.btn--loading More Info
+    .demo__buttons
+      h6 Circle-o-notch
+      a.btn--border-brand.btn--loading.btn--loading-circle-o-notch More Details
+      a.btn--flat.btn--loading.btn--loading-circle-o-notch Sign In
+      a.btn--flat-rounded.btn--loading.btn--loading-circle-o-notch Donate
+      button.btn--flat-small.btn--loading.btn--loading-circle-o-notch Replay
+      a.btn--link.btn--loading.btn--loading-circle-o-notch Read more
+      button.btn--border-default.btn--loading.btn--loading-circle-o-notch
+        svg.filters__view-svg
+          use(xlink:href='#icon-grid')
+      .demo__buttons-bg
+        a.btn--border-white.btn--loading.btn--loading-circle-o-notch More Info
+
+    .demo__buttons
+      h6 Spinner
+      a.btn--border-brand.btn--loading.btn--loading-spinner More Details
+      a.btn--flat.btn--loading.btn--loading-spinner Sign In
+      a.btn--flat-rounded.btn--loading.btn--loading-spinner Donate
+      button.btn--flat-small.btn--loading.btn--loading-spinner Replay
+      a.btn--link.btn--loading Read more
+      button.btn--border-default.btn--loading.btn--loading-spinner
+        svg.filters__view-svg
+          use(xlink:href='#icon-grid')
+      .demo__buttons-bg
+        a.btn--border-white.btn--loading.btn--loading-spinner More Info
+
+
+
+    h2 Social Icons
+    .demo__social
+      .row
+        .col-lg-6
+          .social__panel.social__panel--brand
+            a.social__link(href='#')
+              i.fa.fa-facebook
+            a.social__link(href='#')
+              i.fa.fa-linkedin-square
+            a.social__link(href='#')
+              i.fa.fa-twitter
+            a.social__link(href='#')
+              i.fa.fa-google-plus
+            a.social__link(href='#')
+              i.fa.fa-youtube
+            a.social__link(href='#')
+              i.fa.fa-pinterest
+            a.social__link(href='#')
+              i.fa.fa-vimeo-square
+            a.social__link(href='#')
+              i.fa.fa-flickr
+            a.social__link(href='#')
+              i.fa.fa-rss
+        .col-lg-6
+          .social__panel
+            a.social__link(href='#')
+              i.fa.fa-facebook
+            a.social__link(href='#')
+              i.fa.fa-linkedin-square
+            a.social__link(href='#')
+              i.fa.fa-twitter
+            a.social__link(href='#')
+              i.fa.fa-google-plus
+            a.social__link(href='#')
+              i.fa.fa-youtube
+            a.social__link(href='#')
+              i.fa.fa-pinterest
+            a.social__link(href='#')
+              i.fa.fa-vimeo-square
+            a.social__link(href='#')
+              i.fa.fa-flickr
+            a.social__link(href='#')
+              i.fa.fa-rss
+
+
+    h2 Menu
+    .demo__menu
+      // BEGIN nav
+      nav.nav.nav--v2
+        ul.nav__list
+          // class has-children for items with dropdown
+          // class active for active item
+          // first level of items must have class nav__item- -lvl-1
+          li.nav__item.nav__item--lvl-1.has-children.active
+            a.nav__link Simple Dropdown
+            .nav__sub
+              ul.nav__list
+                // class nav__item- -lvl-sub for seconds and deep levels
+                li.nav__item.nav__item--lvl-sub.active
+                  a.nav__link Item 1
+                li.nav__item.nav__item--lvl-sub
+                  a.nav__link Item 2
+          li.nav__item.nav__item--lvl-1.has-children
+            a.nav__link Expanded Dropdown
+            // nav__sub- -col-2 2 columns dropdown
+            .nav__sub.nav__sub--col-2
+              ul.nav__list
+                // nav__group this is a column
+                li.nav__group
+                  h5.nav__subtitle Group 1
+                  ul.nav__list
+                    li.nav__item.nav__item--group
+                      a.nav__link Item 1.1
+                    li.nav__item.nav__item--group
+                      a.nav__link Item 1.2
+                li.nav__group      
+                  h5.nav__subtitle Group 2
+                  ul.nav__list
+                    li.nav__item.nav__item--group
+                      a.nav__link Item 2.1
+                    li.nav__item.nav__item--group
+                      a.nav__link Item 2.2
+
+          li.nav__item.nav__item--lvl-1.has-children
+            a.nav__link(data-toggle='dropdown') Subitem Dropdown
+            .nav__sub
+              ul.nav__list
+                li.nav__item.nav__item--lvl-sub
+                  a.nav__link Item 3
+                li.nav__item.nav__item--lvl-sub
+                  a.nav__link Item 4
+                li.nav__item.nav__item--lvl-sub.has-children
+                  a.nav__link Subitems
+                  .nav__sub.nav__sub--lvl-1
+                    ul.nav__list
+                      li.nav__item.nav__item--lvl-sub
+                        a.nav__link Subitem 1
+                      li.nav__item.nav__item--lvl-sub
+                        a.nav__link Subitem 2
+          li.nav__item.nav__item--lvl-1
+            a.nav__link Simple link
+
+
+    .demo__pagination
+      include partials/mixins/pagination
+      +pagination('page', true)
+
+    h2 Custom SVG Icons
+    .demo__icons
+      .row
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-arrow-left')
+          .demo__icons-title #icon-arrow-left
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-arrow-right')
+          .demo__icons-title #icon-arrow-right
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-audio')
+          .demo__icons-title #icon-audio
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-doc')
+          .demo__icons-title #icon-doc
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-error')
+          .demo__icons-title #icon-error
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-file')
+          .demo__icons-title #icon-file
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-grid')
+          .demo__icons-title #icon-grid
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-list')
+          .demo__icons-title #icon-list
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-location')
+          .demo__icons-title #icon-location
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-mail')
+          .demo__icons-title #icon-mail
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-phone')
+          .demo__icons-title #icon-phone
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-share')
+          .demo__icons-title #icon-share
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-speaker')
+          .demo__icons-title #icon-speaker
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-time')
+          .demo__icons-title #icon-time
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-user')
+          .demo__icons-title #icon-user
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-valid')
+          .demo__icons-title #icon-valid
+        .demo__icons-item
+          svg.demo__icons-svg
+            use(xlink:href='#icon-video')
+          .demo__icons-title #icon-video
+
+    h2.site__title Breadcrumbs
+
+    .demo__breadcrumbs
+
+      nav.breadcrumbs.breadcrumbs--dark
+        ul
+          li.breadcrumbs__item
+            a.breadcrumbs__link(href='') Home
+          li.breadcrumbs__item
+            a.breadcrumbs__link(href='') Listing estate
+          li.breadcrumbs__item
+            a.breadcrumbs__link(href='') 1600 Pennsylvania Ave NW
+
+      nav.breadcrumbs.breadcrumbs--dark.
+        <ul class="breadcrumbs__list">
+          <li class="home">
+            <span>
+              <a title="Go to Realtyspace." href="http://realtyspace.dev" class="home">Realtyspace</a>
+            </span>
+          </li>
+          <li>
+            <span>
+              <a title="Go to Blog." href="http://realtyspace.dev/blog/">Blog</a>
+            </span>
+          </li>
+          <li class="current_item">
+            <span>
+              <span>FAQ</span>
+            </span>
+          </li>
+        </ul>
+
+    h2.site__title Validation and errors
+    .demo__validation
+      .alert.demo-pnotify-container.alert-success.demo-pnotify-shadow
+        h4.demo-pnotify-title
+          svg.notify-icon
+            use(xlink:href='#icon-valid')
+          | Your message has been sent succesfully.
+
+        .demo-pnotify-text(style='display: none;')
+
+      .alert.demo-pnotify-container.alert-danger.demo-pnotify-shadow
+        h4.demo-pnotify-title
+          svg.notify-icon
+            use(xlink:href='#icon-error')
+          | You data has not been sent incorrectly. Please try again, man.
+
+        .demo-pnotify-text(style='display: none;')
+
+    h1 Forms
+    .demo__forms
+      .row
+        .col-md-7
+          - var formType = 'form--contacts';
+          include partials/mixins/form
+          +form
+        .col-md-5
+          .auth.auth--register
+            - var formType = 'inline';
+            include partials/chunks/auth/register
+    h1 Video player
+    .demo__video
+      .plyr
+        video(poster="http://codefactory47.com/public/webelieve/media/catoliccover.jpg" controls="")
+          source(src="http://codefactory47.com/public/webelieve/media/video-1.mp4" type="video/mp4")
+          source(src="http://codefactory47.com/public/webelieve/media/video-1.webm" type="video/webm")
+
+    h1 Audio player
+    .demo__audio
+      .plyr
+        audio(controls crossorigin)
+          source(src="http://codefactory47.com/public/webelieve/media/Psalms_023.mp3" type="audio/mp3")
+
+    h1 Slider
+    .demo__slider
+      +slider(7, {'data-arrows': 'true', 'data-asNavFor': 'false', 'data-dots': 'true'}, locals.data.slider)

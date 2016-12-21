@@ -1,0 +1,108 @@
+// BEGIN FOOTER
+footer.footer
+  .container
+    .row
+      .footer__column
+        +widget('About Our Church', 'footer')
+          .textwidget
+            p
+              | The WeBeleive Church doesn’t have a central headquarters. Duties are divided among bodies that include the General Conference, the Council of Bishops and the Judicial Council.
+              br
+              | Each of these entities is required by our Constitution.
+        +widget('Our social networks', 'footer')
+          .social.social--footer
+            a.social__item(href='#')
+              i.fa.fa-facebook
+            a.social__item(href='#')
+              i.fa.fa-twitter
+            a.social__item(href='#')
+              i.fa.fa-google-plus
+      // end of block .footer__column
+      .footer__column
+        +widget('Time schedule', 'footer collapser')
+          .schedule.schedule--footer
+            ul.schedule__list
+              li.schedule__item
+                span.schedule__day Monday
+                span.schedule__time 9:00 - 17:00
+              li.schedule__item
+                span.schedule__day Tuesday
+                span.schedule__time 9:30 - 15:00
+              li.schedule__item
+                span.schedule__day Wednesday
+                span.schedule__time 9:30 - 12:30
+              li.schedule__item
+                span.schedule__day Thursday
+                span.schedule__time 8:00 - 12:30
+              li.schedule__item
+                span.schedule__day Friday
+                span.schedule__time 9:00 - 19:00
+              li.schedule__item.schedule__item--highlight
+                span.schedule__day Saturday
+                span.schedule__time 10:00 - 21:00
+              li.schedule__item.schedule__item--highlight
+                span.schedule__day Sunday
+                span.schedule__time 11:00 - 17:00
+      // end of block .footer__column
+      .footer__column
+        +widget('Twitter feeds', 'footer')
+          .feed.feed--footer
+            .feed__list
+              .feed__item
+                .feed__content
+                  strong @raybranson
+                  | We will do have plans but no timeframe decided yet for that, and we will work hard, well
+                time.feed__time(datetime="2016") Feb. 21, 2015
+              .feed__item
+                .feed__content
+                  strong @raybranson
+                  | Please create a good support thread here, please man:
+                  a http://t.co/PfvIY7Guh78AcN7Mt
+                time.feed__time(datetime="2016") Ian. 08, 2015
+              .feed__item
+                .feed__content
+                  strong @smithblack
+                  | Pls create a support thread here:
+                  a http://t.co/PfvIY7Gr
+                time.feed__time(datetime="2016")  Nov. 11, 2014
+      // end of block .footer__column
+      .footer__column
+        +widget('Our Location', 'footer')
+          address.address.address--footer
+            dl.address__list
+              dt.address__list-icon
+                i.fa.fa-map-marker
+              dd.address__list-body
+                | PO Box 16122, Collins Street West
+                | Victoria 10001, Los Angeles, USA
+              dt.address__list-icon
+                i.fa.fa-phone
+              dd.address__list-body
+                | +1 202 555 0135, +1 202 777 0135
+              dt.address__list-icon
+                i.fa.fa-envelope-o
+              dd.address__list-body
+                a(href='welcome@webeleive.com') welcome@webeleive.com
+
+      // end of block .footer__column
+      .clearfix
+  // BEGIN FOOTER PANEL
+  .footer__panel
+    .container
+      button(type='button').scrollup.js-scrollup
+      // end of block .scrollup
+      .row
+        .footer__panel-column
+          span.footer__copyright
+            | &copy; #{new Date().getFullYear()}  We Beleive     |     All Right Reserved
+          // end of block .footer__copyright
+        .footer__panel-column
+          nav.footer__nav
+            a Home
+            a FAQ
+            a Testimonials
+            a Contacts
+          // end of block .footer__nav
+  // end of block .footer__panel
+// end of block .footer
+// END FOOTER

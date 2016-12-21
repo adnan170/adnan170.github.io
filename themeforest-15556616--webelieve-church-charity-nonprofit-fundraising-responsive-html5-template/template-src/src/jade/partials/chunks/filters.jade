@@ -1,0 +1,44 @@
++widget(null, 'card panel')
+  // Begin filters block
+  .filters.js-filters
+    .filters__period
+      button.btn--border-default.filters__period-btn
+        svg.filters__period-svg
+          use(xlink:href='#icon-arrow-left')
+      h4.filters__period-label April 2015
+      button.btn--border-default.filters__period-btn
+        svg.filters__period-svg
+          use(xlink:href='#icon-arrow-right')
+
+    .filters__search
+      .form-group
+        label.control-label.sr-only(for='in-filters-city')
+        //div.listing__show-wrap
+        select.form-control(id='in-filters-city')
+          option Any location
+          option New York
+          option Moscow
+          option London
+
+      .form-group
+        label.control-label.sr-only(for='in-datetime')
+        input.js-datetimerange.form-control(
+          type='text',
+          id='in-datetime',
+          value='Date',
+          data-start-date='12/03/2015',
+          data-end-date='12/22/2015',
+          data-time-picker='false'
+          data-single-picker='false'
+        )
+
+      button.btn--border-default.filters__search-btn.js-filters-btn
+
+    .filters__view
+      button.btn--border-default.filters__view-btn.js-switch-btn(data-mode='grid')
+        svg.filters__view-svg
+          use(xlink:href='#icon-grid')
+      button.btn--border-default.filters__view-btn.js-switch-btn(data-mode='list')
+        svg.filters__view-svg
+          use(xlink:href='#icon-list')
+  // Begin filters block

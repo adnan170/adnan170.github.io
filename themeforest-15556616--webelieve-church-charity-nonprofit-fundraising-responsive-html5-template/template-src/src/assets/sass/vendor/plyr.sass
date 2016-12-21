@@ -1,0 +1,54 @@
+
+@import "../../../node_modules/plyr/src/sass/plyr.scss"
+
++b(plyr)
+  min-width: 260px
+  +e(controls)
+    background: rgba(0, 0, 0, 0.7)
+    display: flex
+    flex-wrap: wrap
+    +m(left)
+      order: 0
+    @media (min-width: $screen-sm-min)
+      position: absolute
+      left: 0
+      bottom: 0
+      right: 0
+    @media (max-width: $screen-xs-max)
+      width: 100%
+    +m(right)
+      order: 2
+    @media (max-width: $screen-xs-max)
+      width: 100%
+
+  +e(progress)
+    position: relative
+    order: 1
+    flex: 1
+    margin: 10px 30px
+    @media (max-width: $screen-xs-max)
+      width: 100%
+      margin: 15px 15px 0
+      flex: auto
+  +m(audio)
+    height: 50px
+    @media (max-width: $screen-xs-max)
+      height: 111px
+    +e(controls)
+      padding-top: 10px
+  +m(vertical)
+    height: 479px
+    +e(video-wrapper)
+      display: flex
+      justify-content: center
+      height: 100%
+    +e(progress)
+      margin: 10px
+      width: 100%
+      flex: inherit
+      order: 0
+    &:not(.plyr--fullscreen-active)
+      video
+        height: 479px
+        max-width: none
+        width: auto

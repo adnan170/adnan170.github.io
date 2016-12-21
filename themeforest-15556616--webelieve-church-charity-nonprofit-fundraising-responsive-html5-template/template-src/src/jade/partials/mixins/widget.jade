@@ -1,0 +1,21 @@
+mixin widget(title, modifier,  btn, btnLink, btnClass)
+  // BEGIN WIDGET
+  .widget.js-widget(class= modifier ? 'widget--' + modifier.replace(/\s/g, ' widget--') : '')
+    unless title == undefined && btn == undefined
+      // BEGIN WIDGET HEADER
+      .widget__header
+        unless title == undefined || title == ''
+          if /footer/.test(modifier)
+            h4.widget__title.js-widget-title!= title
+          else if /sidebar/.test(modifier)
+            h3.widget__title.js-widget-title!= title
+          else
+            h2.widget__title.js-widget-title!= title
+        unless btn == undefined
+          a.widget__btn.js-widget-btn(class= btnClass == undefined ? '' : 'widget__btn--' + btnClass, href= btnLink)= btn
+    // END WIDGET HEADER
+    // BEGIN WIDGET CONTENT
+    .widget__content
+      block
+    // END WIDGET CONTENT
+  // END WIDGET

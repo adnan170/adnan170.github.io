@@ -1,0 +1,36 @@
+mixin commentReview(avatar, warning)
+  li.comment__item
+    .comment__avatar
+      img(src='#{path.media}/avatars/#{avatar}.png', alt='')
+
+    .comment__info
+      .comment__info-left
+        h3.comment__author David Walker
+        time.comment__time(datetime="2016") August 29, 2015 at 9:16 pm
+
+      .comment__info-right
+        .raiting
+          .raiting__stars
+            i.fa.fa-star
+            i.fa.fa-star
+            i.fa.fa-star
+            i.fa.fa-star
+            i.fa.fa-star-half
+
+    .comment__body(class= warning ? 'comment__body--warning' : '')
+      if warning
+        h5 Your comment is awaiting moderation.
+      p Really happy with this Angel. The colors are great, and the material quality is good too.
+
+    // end of block .comment__item
+
+.comment.comment--list
+  header.comment__header
+    h6.comment__header-comment
+      i.fa.fa-comment
+      | 5 reviews for #[strong White praying Angel]
+    h6 You must be #[a logged] in to post a comment.
+
+  ul.comment__list
+    +commentReview(1)
+    +commentReview(2)

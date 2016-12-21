@@ -1,0 +1,34 @@
+extends partials/layout/_subpage
+block config
+  - var bodyClass = '';
+  - var page = 'sermons_grid';
+  - var pageTitle = 'Our sermons';
+  - var sidebarTitle = 'Sermon';
+  - var mainClass = 'main--subpage main--sermons';
+
+block content
+  include partials/chunks/filters
+  +widget(null, 'listing')
+    .sermon.sermon--grid.js-switch-view.js-sermon(data-modifier='grid', data-view='sermon')
+      .sermon__media
+        .sermon__video
+
+          - var firstSermon = locals.data.sermons[0];
+          .plyr.js-plyr-video
+            if i == 3
+              div(data-video-id="bofF_aRIILI", data-type="youtube")
+            else
+              video(poster='#{path.media}/sermons/1794x1010/' + firstSermon.picture, controls="")
+                source(src=firstSermon.video + ".mp4" type="video/mp4")
+                source(src=firstSermon.video + ".webm" type="video/webm")
+        .sermon__audio
+          .plyr.js-plyr-audio
+            audio( controls crossorigin)
+              source(src=firstSermon.audio + ".mp3" type="audio/mp3")
+
+      .listing.listing--grid
+        - var sermonGrid = true;
+        each sermon, i in locals.data.sermons
+          include partials/widgets/sermon/sermon__item
+  +pagination('sermon', true)
+
